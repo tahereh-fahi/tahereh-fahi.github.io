@@ -109,6 +109,11 @@
       background: var(--bg-alt);
       color: #e0f2fe;
     }
+    .nav-links a.active-nav {
+      background: var(--accent);
+      color: #0f172a !important;
+      font-weight: 600;
+    }
     .theme-toggle {
       border: 1px solid var(--border-subtle);
       border-radius: 999px;
@@ -266,7 +271,7 @@
     }
     .card:hover {
       border-color: var(--accent);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.45);
+      box-shadow: 0 0 12px rgba(56,189,248,0.45);
       transform: translateY(-3px) rotateX(1deg) rotateY(-1deg);
     }
     .card-header {
@@ -323,16 +328,89 @@
     ============================ */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       gap: 0.9rem;
-      margin-top: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    @media (min-width: 1400px) {
+      .projects-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 1399px) and (min-width: 1100px) {
+      .projects-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 1099px) and (min-width: 900px) {
+      .projects-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 899px) and (min-width: 600px) {
+      .projects-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 599px) {
+      .projects-grid { grid-template-columns: repeat(1, 1fr); }
     }
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 0.9rem;
-      margin-top: 0.6rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    @media (min-width: 1400px) {
+      .cert-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 1399px) and (min-width: 1100px) {
+      .cert-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 1099px) and (min-width: 900px) {
+      .cert-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 899px) and (min-width: 600px) {
+      .cert-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 599px) {
+      .cert-grid { grid-template-columns: repeat(1, 1fr); }
+    }
+
+    /* ============================
+       CERTIFICATION CATEGORIES
+    ============================ */
+    .cert-category {
+      border-top: 1px solid rgba(148,163,184,0.25);
+      padding-top: 0.8rem;
+      margin-bottom: 1.2rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 0.8rem;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .cert-category.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .cert-category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 0.25rem 0;
+    }
+    .cert-category-header .chevron {
+      transition: transform 0.25s ease;
+      font-size: 1.1rem;
+    }
+    .cert-category[data-open="false"] .chevron {
+      transform: rotate(-90deg);
+    }
+
+    .cert-category-content {
+      overflow: hidden;
+      max-height: 2000px;
+      transition: max-height 0.35s ease;
+    }
+    .cert-category[data-open="false"] .cert-category-content {
+      max-height: 0;
     }
 
     /* ============================
@@ -448,7 +526,6 @@
 
   <!-- PROFILE -->
   <section id="profile-section">
-    <!-- legacy anchor -->
     <a id="hero"></a>
     <a id="profile"></a>
     <div class="profile-inner fade-in">
@@ -904,207 +981,236 @@
       </div>
 
       <!-- MACHINE LEARNING -->
-      <h3 style="color: var(--accent); margin-bottom: 0.6rem; font-size:0.95rem;">Machine Learning</h3>
-      <div class="cert-grid">
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/UMH9PCAA3XL9" target="_blank">
-              Machine Learning — Stanford University
-            </a>
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Machine Learning</span>
+          <span class="chevron">▾</span>
+        </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/UMH9PCAA3XL9" target="_blank">
+                  Machine Learning — Stanford University
+                </a>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Stanford</span>
+              </div>
+              <div class="card-body">Issued May 2024 · ID: UMH9PCAA3XL9</div>
+            </div>
           </div>
-          <div class="card-tags">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Stanford</span>
-          </div>
-          <div class="card-body">Issued May 2024 · ID: UMH9PCAA3XL9</div>
         </div>
       </div>
 
-      <!-- STATS & DS -->
-      <h3 style="color: var(--accent); margin: 1.5rem 0 0.6rem; font-size:0.95rem;">Statistics & Data Science (MITx)</h3>
-      <div class="cert-grid">
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://courses.edx.org/certificates/335e339527c548e19a9be4c72da363fe" target="_blank">
-              Capstone Exam in Statistics & Data Science — MITx / edX
-            </a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">MIT MicroMasters</span><span class="tag">Statistics</span>
-          </div>
-          <div class="card-body">Issued Apr 2024 · ID: 335e339527c548e19a9be4c72da363fe</div>
+      <!-- STATISTICS & DATA SCIENCE (MITx) -->
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Statistics & Data Science (MITx)</span>
+          <span class="chevron">▾</span>
         </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/335e339527c548e19a9be4c72da363fe" target="_blank">
+                  Capstone Exam in Statistics & Data Science — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags">
+                <span class="tag">MIT MicroMasters</span><span class="tag">Statistics</span>
+              </div>
+              <div class="card-body">Issued Apr 2024 · ID: 335e339527c548e19a9be4c72da363fe</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://courses.edx.org/certificates/933756f365d844b0ab78ae32f4a42fa0" target="_blank">
-              Data Analysis: Statistical Modeling & Computation — MITx / edX
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Statistics</span></div>
-          <div class="card-body">Issued May 2023 · ID: 933756f365d844b0ab78ae32f4a42fa0</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/933756f365d844b0ab78ae32f4a42fa0" target="_blank">
+                  Data Analysis: Statistical Modeling & Computation — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Statistics</span></div>
+              <div class="card-body">Issued May 2023 · ID: 933756f365d844b0ab78ae32f4a42fa0</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://courses.edx.org/certificates/8e60f55f56c04b8a833889d809d39e2a" target="_blank">
-              Probability: The Science of Uncertainty — MITx / edX
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Probability</span></div>
-          <div class="card-body">Issued Dec 2022 · ID: 8e60f55f56c04b8a833889d809d39e2a</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/8e60f55f56c04b8a833889d809d39e2a" target="_blank">
+                  Probability: The Science of Uncertainty — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Probability</span></div>
+              <div class="card-body">Issued Dec 2022 · ID: 8e60f55f56c04b8a833889d809d39e2a</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://courses.edx.org/certificates/b996da98b8c84c41b636604cc6c97132" target="_blank">
-              Fundamentals of Statistics — MITx / edX
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Statistics</span></div>
-          <div class="card-body">Issued Nov 2022 · ID: b996da98b8c84c41b636604cc6c97132</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/b996da98b8c84c41b636604cc6c97132" target="_blank">
+                  Fundamentals of Statistics — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Statistics</span></div>
+              <div class="card-body">Issued Nov 2022 · ID: b996da98b8c84c41b636604cc6c97132</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://courses.edx.org/certificates/76c9f4f89a254d8d942bad3dcbb60f69" target="_blank">
-              Machine Learning with Python — MITx / edX
-            </a>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/76c9f4f89a254d8d942bad3dcbb60f69" target="_blank">
+                  Machine Learning with Python — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Machine Learning</span></div>
+              <div class="card-body">Issued Jul 2022 · ID: 76c9f4f89a254d8d942bad3dcbb60f69</div>
+            </div>
           </div>
-          <div class="card-tags"><span class="tag">Machine Learning</span></div>
-          <div class="card-body">Issued Jul 2022 · ID: 76c9f4f89a254d8d942bad3dcbb60f69</div>
         </div>
       </div>
 
-      <!-- DEEP LEARNING -->
-      <h3 style="color: var(--accent); margin: 1.5rem 0 0.6rem; font-size:0.95rem;">Deep Learning (DeepLearning.AI)</h3>
-      <div class="cert-grid">
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/specialization/JVUR8FAQCS4Q" target="_blank">
-              Deep Learning Specialization — DeepLearning.AI
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Deep Learning</span></div>
-          <div class="card-body">Issued Apr 2020 · ID: JVUR8FAQCS4Q</div>
+      <!-- DEEP LEARNING (DeepLearning.AI) -->
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Deep Learning (DeepLearning.AI)</span>
+          <span class="chevron">▾</span>
         </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/JVUR8FAQCS4Q" target="_blank">
+                  Deep Learning Specialization — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Deep Learning</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: JVUR8FAQCS4Q</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/LY5KRK7DJS9N" target="_blank">
-              Convolutional Neural Networks — DeepLearning.AI
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">CNN</span></div>
-          <div class="card-body">Issued Apr 2020 · ID: LY5KRK7DJS9N</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/LY5KRK7DJS9N" target="_blank">
+                  Convolutional Neural Networks — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">CNN</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: LY5KRK7DJS9N</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/JJFB9MY69UQW" target="_blank">
-              Improving Deep Neural Networks — DeepLearning.AI
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">DNN</span></div>
-          <div class="card-body">Issued Apr 2020 · ID: JJFB9MY69UQW</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/JJFB9MY69UQW" target="_blank">
+                  Improving Deep Neural Networks — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">DNN</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: JJFB9MY69UQW</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/5LT3DB4EXCEZ" target="_blank">
-              Neural Networks and Deep Learning — DeepLearning.AI
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Neural Networks</span></div>
-          <div class="card-body">Issued Apr 2020 · ID: 5LT3DB4EXCEZ</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/5LT3DB4EXCEZ" target="_blank">
+                  Neural Networks and Deep Learning — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Neural Networks</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: 5LT3DB4EXCEZ</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/TN563B6KSELK" target="_blank">
-              Sequence Models — DeepLearning.AI
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">RNN</span><span class="tag">LSTM</span></div>
-          <div class="card-body">Issued Apr 2020 · ID: TN563B6KSELK</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/TN563B6KSELK" target="_blank">
+                  Sequence Models — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">RNN</span><span class="tag">LSTM</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: TN563B6KSELK</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/G3CT3MP7LCWY" target="_blank">
-              Structuring Machine Learning Projects — DeepLearning.AI
-            </a>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/G3CT3MP7LCWY" target="_blank">
+                  Structuring Machine Learning Projects — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">ML Strategy</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: G3CT3MP7LCWY</div>
+            </div>
           </div>
-          <div class="card-tags"><span class="tag">ML Strategy</span></div>
-          <div class="card-body">Issued Apr 2020 · ID: G3CT3MP7LCWY</div>
         </div>
       </div>
 
-      <!-- CLOUD ENGINEERING -->
-      <h3 style="color: var(--accent); margin: 1.5rem 0 0.6rem; font-size:0.95rem;">Cloud & ML Engineering (Google Cloud)</h3>
-      <div class="cert-grid">
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/specialization/RXPGDJJASHPL" target="_blank">
-              Machine Learning on Google Cloud Specialization
-            </a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">Google Cloud</span><span class="tag">ML Engineering</span>
-          </div>
-          <div class="card-body">Issued Mar 2020 · ID: RXPGDJJASHPL</div>
+      <!-- CLOUD & ML ENGINEERING (Google Cloud) -->
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Cloud & ML Engineering (Google Cloud)</span>
+          <span class="chevron">▾</span>
         </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/RXPGDJJASHPL" target="_blank">
+                  Machine Learning on Google Cloud Specialization
+                </a>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Google Cloud</span><span class="tag">ML Engineering</span>
+              </div>
+              <div class="card-body">Issued Mar 2020 · ID: RXPGDJJASHPL</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/MGYB473M4LY4" target="_blank">
-              Build, Train & Deploy ML Models (Keras)
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Keras</span></div>
-          <div class="card-body">Issued Mar 2020 · ID: MGYB473M4LY4</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/MGYB473M4LY4" target="_blank">
+                  Build, Train & Deploy ML Models (Keras)
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Keras</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: MGYB473M4LY4</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/JKDY3LWHL992" target="_blank">
-              Feature Engineering — Google Cloud
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Feature Engineering</span></div>
-          <div class="card-body">Issued Mar 2020 · ID: JKDY3LWHL992</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/JKDY3LWHL992" target="_blank">
+                  Feature Engineering
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Feature Engineering</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: JKDY3LWHL992</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/ZPZZSN4QYS9M" target="_blank">
-              How Google Does Machine Learning
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">Google ML</span></div>
-          <div class="card-body">Issued Mar 2020 · ID: ZPZZSN4QYS9M</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/ZPZZSN4QYS9M" target="_blank">
+                  How Google Does Machine Learning
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Google ML</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: ZPZZSN4QYS9M</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/TAQND8KQYVZG" target="_blank">
-              Launching into Machine Learning
-            </a>
-          </div>
-          <div class="card-tags"><span class="tag">ML</span></div>
-          <div class="card-body">Issued Mar 2020 · ID: TAQND8KQYVZG</div>
-        </div>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/TAQND8KQYVZG" target="_blank">
+                  Launching into Machine Learning
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">ML</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: TAQND8KQYVZG</div>
+            </div>
 
-        <div class="card reveal">
-          <div class="card-title">
-            <a href="https://www.coursera.org/account/accomplishments/records/F7EK7YNJHW6U" target="_blank">
-              ML in the Enterprise
-            </a>
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/F7EK7YNJHW6U" target="_blank">
+                  Machine Learning in the Enterprise
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">ML Engineering</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: F7EK7YNJHW6U</div>
+            </div>
           </div>
-          <div class="card-tags"><span class="tag">ML Engineering</span></div>
-          <div class="card-body">Issued Mar 2020 · ID: F7EK7YNJHW6U</div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1157,7 +1263,6 @@
       try { localStorage.setItem("theme", theme); } catch (e) {}
     }
 
-    // load stored theme
     (function () {
       try {
         const stored = localStorage.getItem("theme");
@@ -1176,7 +1281,7 @@
       setTheme(current === "dark" ? "light" : "dark");
     });
 
-    // Scroll reveal
+    // Scroll reveal for cards
     const revealElements = document.querySelectorAll(".reveal");
     function revealOnScroll() {
       const windowHeight = window.innerHeight;
@@ -1189,6 +1294,59 @@
     }
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
+
+    // Collapsible certification categories + fade-in
+    document.querySelectorAll(".cert-category-header").forEach(header => {
+      header.addEventListener("click", () => {
+        const parent = header.parentElement;
+        const isOpen = parent.getAttribute("data-open") === "true";
+        parent.setAttribute("data-open", isOpen ? "false" : "true");
+      });
+    });
+
+    const certCats = document.querySelectorAll(".cert-category");
+    const catObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.3 });
+    certCats.forEach(cat => catObserver.observe(cat));
+
+    // Active nav highlighting by section
+    const sections = [
+      { id: "profile-section", nav: "#profile" },
+      { id: "about", nav: "#about" },
+      { id: "projects", nav: "#projects" },
+      { id: "experience", nav: "#experience" },
+      { id: "education", nav: "#education" },
+      { id: "skills", nav: "#skills" },
+      { id: "certifications", nav: "#certifications" },
+      { id: "contact", nav: "#contact" }
+    ];
+
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sec = sections.find(s => s.id === entry.target.id);
+          if (!sec) return;
+          navLinks.forEach(link => {
+            link.classList.remove("active-nav");
+            if (link.getAttribute("href") === sec.nav) {
+              link.classList.add("active-nav");
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (el) sectionObserver.observe(el);
+    });
   </script>
 </body>
 </html>
