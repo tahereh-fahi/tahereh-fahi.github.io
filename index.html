@@ -91,6 +91,22 @@
             font-size: 18px;
         }
 
+        .cv-button {
+            background:#38bdf8;
+            color:#020617;
+            padding:12px 28px;
+            border-radius:10px;
+            font-weight:bold;
+            text-decoration:none;
+            font-size:18px;
+            display:inline-block;
+            margin-top: 30px;
+        }
+
+        .cv-button:hover {
+            background:#7dd3fc;
+        }
+
         /* CARDS */
         .card {
             background: rgba(15,23,42,0.85);
@@ -103,11 +119,6 @@
         .card h3 {
             margin-top: 0;
             color: #bae6fd;
-        }
-
-        /* LISTS */
-        ul {
-            padding-left: 20px;
         }
 
         /* CONTACT FOOTER */
@@ -147,21 +158,20 @@
     <!-- HERO SECTION -->
     <section id="hero" class="hero">
         <img src="tahereh.jpg" alt="Tahereh Fahi">
+
         <h1>Tahereh Fahi</h1>
         <h3>Data Scientist • Machine Learning Researcher</h3>
-        <p style="margin-top: 25px;">
-    <a href="Tahereh-Fahi-CV.pdf" target="_blank"
-       style="background:#38bdf8; color:#020617; padding:10px 20px;
-              border-radius:8px; font-weight:bold; text-decoration:none;">
-        📄 View My CV
-    </a>
-</p>
 
         <p>
             Data scientist with strong foundations in statistics, optimization, and deep learning —
             experienced in financial time series, environmental forecasting, bioinformatics,
             and complex networks. Passionate about data-driven decision making and applied machine learning.
         </p>
+
+        <!-- CV BUTTON -->
+        <a class="cv-button" href="Tahereh-Fahi-CV.pdf" target="_blank">
+            📄 View My CV
+        </a>
     </section>
 
     <!-- ABOUT -->
@@ -172,7 +182,7 @@
                 I am a Data Scientist with a MicroMaster in Statistics and Data Science from MIT,
                 with top rankings in both my B.Sc. and M.Sc. programs. My work spans financial markets,
                 environmental modeling, bioinformatics, and network science. I enjoy building models
-                that extract real insights from messy, complex data.
+                that extract meaningful insights from complex data.
             </p>
         </div>
     </section>
@@ -195,8 +205,8 @@
             <h3>Graduate Research Assistant — Tarbiat Modares University</h3>
             <p><strong>2016 — 2017</strong></p>
             <ul>
-                <li>Integrated PLR segmentation with local feature selection for stock trading signals.</li>
-                <li>Improved trend reversal prediction on real stock market data.</li>
+                <li>Integrated PLR segmentation with local feature selection for stock market prediction.</li>
+                <li>Improved trend reversal detection on real market datasets.</li>
             </ul>
         </div>
     </section>
@@ -205,52 +215,53 @@
     <section id="projects">
         <h2>Projects</h2>
 
-        <div class="card">
-            <h3>GANs for Realistic Image Generation</h3>
-            <p>Implemented GAN architectures to generate high-quality synthetic images.</p>
-        </div>
+        <div class="card"><h3>Generative Adversarial Networks (GANs)</h3><p>Built GAN architectures for realistic image generation.</p></div>
 
-        <div class="card">
-            <h3>ARIMA & ARIMAX Forecasting</h3>
-            <p>Forecasted CO₂ levels, CPI inflation, and economic indicators using statistical models.</p>
-        </div>
+        <div class="card"><h3>CNNs for Detection & Segmentation</h3><p>Designed CNN models with transfer learning and residual blocks.</p></div>
 
-        <div class="card">
-            <h3>Single-Cell RNA-Seq Analysis</h3>
-            <p>Used PCA, t-SNE, and supervised learning to classify and cluster genomic data.</p>
-        </div>
+        <div class="card"><h3>Sequence Models (RNN, LSTM, Attention)</h3><p>Created models for translation, sentiment analysis and text generation.</p></div>
+
+        <div class="card"><h3>Emotion Recognition in Social Media</h3><p>Built multi-label deep learning models for tweets.</p></div>
+
+        <div class="card"><h3>Q-Learning Agent with Function Approximation</h3><p>Implemented RL agent for sparse-reward environments.</p></div>
+
+        <div class="card"><h3>CO₂ Time Series Forecasting (ARIMA)</h3><p>Forecasted environmental indicators with ARIMA models.</p></div>
+
+        <div class="card"><h3>CPI Inflation Forecasting (ARIMAX)</h3><p>Modeled inflation expectations using external regressors.</p></div>
+
+        <div class="card"><h3>Single-Cell RNA-Seq Analysis</h3><p>Performed dimensionality reduction and classification on scRNA-seq data.</p></div>
+
+        <div class="card"><h3>Gaussian Processes for Spatial Modeling</h3><p>Predicted ocean temperature fields with custom kernels.</p></div>
+
+        <div class="card"><h3>Graph Analysis of Social & Criminal Networks</h3><p>Performed clustering, centrality, and link prediction.</p></div>
+
+        <div class="card"><h3>Collaborative Filtering with Mixture Models</h3><p>Built recommender system using EM and Gaussian mixtures.</p></div>
+
+        <div class="card"><h3>Amazon Review Sentiment Analysis</h3><p>Applied classical ML and deep learning classifiers.</p></div>
+
+        <div class="card"><h3>Deep Neural Networks from Scratch</h3><p>Implemented forward/backprop and optimizers using NumPy only.</p></div>
     </section>
 
     <!-- EDUCATION -->
     <section id="education">
         <h2>Education</h2>
 
-        <div class="card">
-            <h3>MIT — MicroMaster in Statistics and Data Science</h3>
-            <p>2022 – 2024 • GPA: 4.0/4.0</p>
-        </div>
+        <div class="card"><h3>MIT MicroMaster — Statistics & Data Science</h3><p>2022–2024 • GPA: 4.0/4.0</p></div>
 
-        <div class="card">
-            <h3>M.Sc. in Information Technology Engineering — Tarbiat Modares University</h3>
-            <p>Top Rank • GPA: 3.92/4.0</p>
-        </div>
+        <div class="card"><h3>M.Sc. Information Technology Engineering</h3><p>Tarbiat Modares University • Ranked 1st</p></div>
 
-        <div class="card">
-            <h3>B.Sc. in Industrial Engineering — K.N. Toosi University of Technology</h3>
-            <p>Ranked 1st in Program</p>
-        </div>
+        <div class="card"><h3>B.Sc. Industrial Engineering</h3><p>K.N. Toosi University • Ranked 1st</p></div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
         <h2>Skills</h2>
-
         <div class="card">
             <h3>Programming</h3>
             <p>Python, R, MATLAB, C++, C#, SQL</p>
 
-            <h3>Machine Learning & AI</h3>
-            <p>Deep Learning, CNNs, RNNs, LSTMs, Transformers, Reinforcement Learning</p>
+            <h3>Machine Learning</h3>
+            <p>Deep Learning, CNNs, RNNs, Transformers, Reinforcement Learning</p>
 
             <h3>Data Science</h3>
             <p>Time Series, Signal Processing, Optimization, Bioinformatics</p>
@@ -260,8 +271,7 @@
     <!-- CONTACT -->
     <section id="contact">
         <h2>Contact</h2>
-
-        <div class="card" style="text-align: center;">
+        <div class="card" style="text-align:center;">
             <p>Email: <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a></p>
             <p>Location: Toronto, Canada</p>
             <p>
