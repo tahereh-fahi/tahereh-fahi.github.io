@@ -9,7 +9,7 @@
     :root {
       --bg: #0b1020;
       --bg-alt: #111827;
-      --bg-card: rgba(15,23,42,0.9);
+      --bg-card: rgba(15,23,42,0.95);
       --text: #e2e8f0;
       --muted: #94a3b8;
       --accent: #38bdf8;
@@ -51,7 +51,7 @@
       min-height: 100vh;
     }
 
-    /* Top nav */
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -136,12 +136,44 @@
       background: rgba(226,232,240,0.9);
     }
 
-    /* profile */
-    .profile {
+    /* GENERIC SECTION WRAPPER */
+    .page-section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-block {
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem 1.9rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 0.9rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* PROFILE (HERO) */
+    #profile-section {
       max-width: 900px;
       margin: 2.5rem auto 2rem;
       padding: 0 1.25rem;
-      text-align: center;
     }
 
     .profile-inner {
@@ -153,6 +185,7 @@
         linear-gradient(135deg, #020617, #020617);
       border: 1px solid rgba(148,163,184,0.55);
       box-shadow: var(--shadow-soft);
+      text-align: center;
     }
 
     [data-theme="light"] .profile-inner {
@@ -265,138 +298,14 @@
       text-decoration: underline;
     }
 
-    /* LAYOUT: SIDEBAR + MAIN */
-    .layout {
-      max-width: 1100px;
-      margin: 0 auto 2.5rem;
-      padding: 0 1.25rem;
-      display: grid;
-      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-      gap: 1.8rem;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 880px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 4.5rem;
-      align-self: flex-start;
-      background: var(--bg-card);
-      border-radius: 18px;
-      padding: 1.3rem 1.25rem 1.4rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-card);
-      font-size: 0.88rem;
-    }
-
-    .sidebar-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .sidebar-section {
-      margin-bottom: 1.1rem;
-    }
-
-    .sidebar-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .sidebar-value {
-      color: var(--text);
-    }
-
-    .sidebar-value a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .sidebar-value a:hover {
-      text-decoration: underline;
-    }
-
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      margin-top: 0.4rem;
-    }
-
-    .sidebar-nav a {
-      font-size: 0.84rem;
-      color: var(--muted);
-      text-decoration: none;
-      padding: 0.25rem 0.4rem;
-      border-radius: 999px;
-      transition: all 0.14s ease-out;
-    }
-
-    .sidebar-nav a:hover {
-      background: rgba(15,23,42,0.85);
-      color: var(--accent);
-      transform: translateX(2px);
-    }
-
-    [data-theme="light"] .sidebar-nav a:hover {
-      background: #e5e7eb;
-    }
-
-    /* MAIN CONTENT */
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-
-    .section-block {
-      background: var(--bg-card);
-      border-radius: 18px;
-      padding: 1.6rem 1.5rem 1.7rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-card);
-    }
-
-    .section-header {
-      margin-bottom: 0.9rem;
-    }
-
-    .section-title {
-      font-size: 1rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    /* PROJECT CARDS */
+    /* CARDS & GRID */
     .card {
       border-radius: 14px;
       border: 1px solid rgba(148,163,184,0.4);
       padding: 0.9rem 1rem;
       margin-top: 0.7rem;
-      background: rgba(15,23,42,0.95);
+      background: var(--bg-card);
       transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
-    }
-
-    [data-theme="light"] .card {
-      background: #ffffff;
     }
 
     .card:hover {
@@ -416,6 +325,10 @@
     .card-title {
       font-size: 0.98rem;
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      flex-wrap: wrap;
     }
 
     .card-title a {
@@ -425,6 +338,10 @@
 
     .card-title a:hover {
       color: var(--accent);
+    }
+
+    .card-icon {
+      font-size: 1.05rem;
     }
 
     .card-tags {
@@ -458,6 +375,31 @@
     .card-body li {
       list-style: disc;
       margin-bottom: 0.1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 0.7rem;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     /* FLOATING CV BUTTON */
@@ -519,20 +461,20 @@
 </head>
 <body>
 
-  <!-- TOP NAV -->
+  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <div class="nav-left">
         <span>TAHEREH FAHI</span>
       </div>
       <div class="nav-links">
-        <a href="#profile">profile</a>
+        <a href="#profile">Profile</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
-        <a href="#courses">Certificates</a>
+        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="theme-toggle" id="themeToggle">
@@ -542,8 +484,11 @@
     </div>
   </nav>
 
-  <!-- profile -->
-  <section id="profile" class="profile">
+  <!-- PROFILE (used to be "hero") -->
+  <section id="profile-section">
+    <!-- keep legacy anchor so old #hero links still work -->
+    <a id="hero"></a>
+    <a id="profile"></a>
     <div class="profile-inner">
       <img src="tahereh.jpg" alt="Tahereh Fahi" class="profile-photo" />
       <div class="profile-kicker">Data Science · Machine Learning · Optimization</div>
@@ -568,85 +513,41 @@
     </div>
   </section>
 
-  <!-- MAIN LAYOUT: SIDEBAR + CONTENT -->
-  <div class="layout">
-    <!-- FLOATING SIDEBAR (scrolls with page) -->
-    <aside class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-title">Profile</div>
+  <!-- ABOUT -->
+  <section id="about" class="page-section">
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <div class="section-subtitle">
+          Data scientist with a background in industrial engineering, IT systems, and statistical data science.
+        </div>
       </div>
+      <p style="font-size:0.92rem; color:var(--muted);">
+        I enjoy building machine learning solutions that connect rigorous models with real-world decisions.
+        My work spans financial markets, environmental systems, bioinformatics, and complex networks,
+        often integrating time series, optimization, and deep learning. I value clarity, reproducibility,
+        and practical impact in all stages of the ML lifecycle—from data collection and modeling to deployment.
+      </p>
+    </div>
+  </section>
 
-      <div class="sidebar-section">
-        <div class="sidebar-label">Location</div>
-        <div class="sidebar-value">Toronto, Canada</div>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-label">Email</div>
-        <div class="sidebar-value">
-          <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a>
+  <!-- PROJECTS -->
+  <section id="projects" class="page-section">
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">GitHub Projects</h2>
+        <div class="section-subtitle">
+          Selected projects with public code — forecasting, reinforcement learning, bioinformatics, and graph analysis.
         </div>
       </div>
 
-      <div class="sidebar-section">
-        <div class="sidebar-label">GitHub</div>
-        <div class="sidebar-value">
-          <a href="https://github.com/tahereh-fahi" target="_blank">github.com/tahereh-fahi</a>
-        </div>
-      </div>
+      <!-- GITHUB PROJECTS GRID -->
+      <div class="projects-grid">
 
-      <div class="sidebar-section">
-        <div class="sidebar-label">LinkedIn</div>
-        <div class="sidebar-value">
-          <a href="https://www.linkedin.com/in/tahereh-fahi" target="_blank">linkedin.com/in/tahereh-fahi</a>
-        </div>
-      </div>
-
-      <div class="sidebar-section">
-        <div class="sidebar-label">Navigate</div>
-        <div class="sidebar-nav">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#skills">Skills</a>
-          <a href="#courses">Certificates</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-    </aside>
-
-    <!-- MAIN CONTENT -->
-    <main class="content">
-
-      <!-- ABOUT -->
-      <section id="about" class="section-block">
-        <div class="section-header">
-          <h2 class="section-title">About</h2>
-          <div class="section-subtitle">
-            Data scientist with a background in industrial engineering, IT systems, and statistical data science.
-          </div>
-        </div>
-        <p style="font-size:0.92rem; color:var(--muted);">
-          I enjoy building machine learning solutions that connect rigorous models with real-world decisions.
-          My focus spans financial markets, environmental systems, bioinformatics, and complex networks,
-          often integrating time series, optimization, and deep learning.
-        </p>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="section-block">
-        <div class="section-header">
-          <h2 class="section-title">Projects</h2>
-          <div class="section-subtitle">
-            GitHub-linked projects first, followed by additional course and research projects.
-          </div>
-        </div>
-
-        <!-- GITHUB-LINKED PROJECTS FIRST -->
         <div class="card">
           <div class="card-header">
             <div class="card-title">
+              <span class="card-icon">📈</span>
               <a href="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb" target="_blank">
                 Stock Trading Points Prediction
               </a>
@@ -655,17 +556,16 @@
           <div class="card-tags">
             <span class="tag">Time Series</span>
             <span class="tag">Finance</span>
-            <span class="tag">Feature Selection</span>
           </div>
           <div class="card-body">
-            Hybrid Piecewise Linear Representation (PLR) + Local Feature Selection (LFS) to detect turning points
-            and regime-specific indicators in stock market data.
+            Hybrid PLR + Local Feature Selection to detect turning points and regime-specific indicators in noisy stock data.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div class="card-title">
+              <span class="card-icon">🤖</span>
               <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/TabularQL.ipynb" target="_blank">
                 Q-Learning for Text-based Games
               </a>
@@ -684,6 +584,7 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
+              <span class="card-icon">🧬</span>
               <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/tsne_pca_visualization.ipynb" target="_blank">
                 RNA-seq Dimensionality Reduction & Classification
               </a>
@@ -694,14 +595,15 @@
             <span class="tag">Dimensionality Reduction</span>
           </div>
           <div class="card-body">
-            Applied PCA and t-SNE on noisy single-cell RNA-seq data and used supervised models to classify cell
-            types, validating clusters via cross-validation metrics.
+            Applied PCA and t-SNE on single-cell RNA-seq data and trained classifiers for cell-type identification with
+            validation via cross-validation metrics.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div class="card-title">
+              <span class="card-icon">🌐</span>
               <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/networks.ipynb" target="_blank">
                 Comparative Graph Analysis (Facebook vs Twitter)
               </a>
@@ -713,13 +615,14 @@
           </div>
           <div class="card-body">
             Explored assortativity, degree distributions, centrality, and power-law fits to highlight structural
-            differences and influence dynamics between social networks.
+            differences and influence patterns between large social networks.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div class="card-title">
+              <span class="card-icon">📈</span>
               <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/CO2_TimeSeries.ipynb" target="_blank">
                 CO₂ Time Series Forecasting (ARIMA)
               </a>
@@ -738,6 +641,7 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
+              <span class="card-icon">📊</span>
               <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/EXTRegressor.ipynb" target="_blank">
                 CPI & BER Inflation Forecasting (ARIMAX)
               </a>
@@ -756,6 +660,7 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
+              <span class="card-icon">📈</span>
               <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/Gaussian_Processes.ipynb" target="_blank">
                 Gaussian Process Models for Environmental Data
               </a>
@@ -771,38 +676,58 @@
           </div>
         </div>
 
-        <!-- Other notable projects (no direct GitHub link) -->
+      </div>
+    </div>
+
+    <!-- OTHER PROJECTS GRID -->
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">Other Projects</h2>
+        <div class="section-subtitle">
+          Additional projects from coursework, research, and self-directed work.
+        </div>
+      </div>
+
+      <div class="projects-grid">
         <div class="card">
           <div class="card-header">
-            <div class="card-title">GANs for Realistic Image Synthesis</div>
+            <div class="card-title">
+              <span class="card-icon">🧠</span>
+              GANs for Realistic Image Synthesis
+            </div>
           </div>
           <div class="card-tags">
             <span class="tag">Deep Learning</span>
             <span class="tag">GAN</span>
           </div>
           <div class="card-body">
-            Trained PyTorch GANs to generate realistic synthetic imagery, improving adversarial stability and
-            latent-space representation.
+            Trained GAN architectures to generate realistic synthetic images and studied stability improvements and latent space structure.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title">CNNs for Detection & Segmentation</div>
+            <div class="card-title">
+              <span class="card-icon">🧠</span>
+              CNNs for Detection & Segmentation
+            </div>
           </div>
           <div class="card-tags">
             <span class="tag">CNN</span>
             <span class="tag">Computer Vision</span>
           </div>
           <div class="card-body">
-            Built CNN architectures with transfer learning and residual blocks for object detection and
-            segmentation, leveraging YOLO-based methods and style transfer.
+            Built CNN architectures with transfer learning and residual blocks for detection and segmentation
+            tasks, including experiments with YOLO-style pipelines.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title">Sequence Models with RNNs & Attention</div>
+            <div class="card-title">
+              <span class="card-icon">🧠</span>
+              Sequence Models with RNNs & Attention
+            </div>
           </div>
           <div class="card-tags">
             <span class="tag">NLP</span>
@@ -816,454 +741,377 @@
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title">Emotion Recognition in Social Media Text</div>
+            <div class="card-title">
+              <span class="card-icon">📊</span>
+              Emotion Recognition in Social Media Text
+            </div>
           </div>
           <div class="card-tags">
             <span class="tag">NLP</span>
             <span class="tag">Social Media</span>
           </div>
           <div class="card-body">
-            Built deep architectures with embeddings for multi-label emotion prediction in noisy tweet data,
-            outperforming classic sentiment baselines.
+            Built deep architectures with embeddings for multi-label emotion prediction in noisy tweet data, 
+            surpassing classic sentiment models.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title">Neural Networks from Scratch</div>
+            <div class="card-title">
+              <span class="card-icon">🧠</span>
+              Neural Networks from Scratch
+            </div>
           </div>
           <div class="card-tags">
             <span class="tag">Deep Learning</span>
             <span class="tag">NumPy</span>
           </div>
           <div class="card-body">
-            Implemented feedforward neural networks and logistic regression using only NumPy, verifying
-            gradients and achieving strong performance on synthetic datasets.
-          </div>
-        </div>
-      </section>
-
-      <!-- EXPERIENCE -->
-      <section id="experience" class="section-block">
-        <div class="section-header">
-          <h2 class="section-title">Experience</h2>
-          <div class="section-subtitle">
-            Industry and research roles focused on data science, optimization, and time series modeling.
+            Implemented feedforward neural networks and logistic regression using only NumPy, verifying gradients and
+            achieving strong performance on synthetic datasets.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title">Data Scientist — Roboself.ai</div>
-            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – Present · Toronto</div>
+            <div class="card-title">
+              <span class="card-icon">📊</span>
+              Optimization & Regularization Strategies
+            </div>
           </div>
           <div class="card-tags">
-            <span class="tag">Finance</span>
-            <span class="tag">Time Series</span>
             <span class="tag">Optimization</span>
+            <span class="tag">Regularization</span>
           </div>
           <div class="card-body">
-            <ul>
-              <li>Developed algorithms to detect turning points in financial time series for early trend reversal detection.</li>
-              <li>Designed hybrid AI models combining Neural Networks, GA, PSO, and NSGA-II.</li>
-              <li>Applied signal processing for feature extraction, noise reduction, and model robustness.</li>
-            </ul>
+            Explored dropout, batch normalization, learning rate schedules, and initialization strategies for improving
+            training stability and generalization in deep models.
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title">Graduate Research Assistant — Tarbiat Modares University</div>
-            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2016 – 2017 · Tehran</div>
+            <div class="card-title">
+              <span class="card-icon">🧠</span>
+              Transfer Learning & Model Diagnosis
+            </div>
           </div>
           <div class="card-tags">
-            <span class="tag">Research</span>
-            <span class="tag">Finance</span>
+            <span class="tag">Transfer Learning</span>
           </div>
           <div class="card-body">
-            <ul>
-              <li>
-                Led the project
-                <strong>“Integrating a Local Feature Selection and a Modified PLR Method for Stock Trading Points Prediction”</strong>.
-              </li>
-              <li>Developed a hybrid PLR + local feature selection framework for noisy, non-stationary stock data.</li>
-              <li>Improved turning point detection and trading signal precision with lower computational cost.</li>
-            </ul>
+            Applied transfer learning to new tasks with limited data, performing bias–variance analysis and model error
+            diagnosis to refine architectures and training regimes.
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- EDUCATION -->
-      <section id="education" class="section-block">
-        <div class="section-header">
-          <h2 class="section-title">Education</h2>
-          <div class="section-subtitle">Strong quantitative foundation in statistics, IT systems, and industrial engineering.</div>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="page-section">
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-subtitle">
+          Industry and research roles focused on data science, optimization, and time series modeling.
         </div>
+      </div>
 
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">MicroMaster in Statistics & Data Science — MIT</div>
-            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2022 – 2024</div>
-          </div>
-          <div class="card-body">
-            GPA 4.0/4.0 · Focus on probability, statistical inference, machine learning, and data analysis.
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Data Scientist — Roboself.ai</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – Present · Toronto</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Finance</span>
+          <span class="tag">Time Series</span>
+          <span class="tag">Optimization</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Developed algorithms to detect turning points in financial time series for early trend reversal detection.</li>
+            <li>Designed hybrid AI models combining Neural Networks, GA, PSO, and NSGA-II.</li>
+            <li>Applied signal processing for feature extraction, noise reduction, and model robustness.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Graduate Research Assistant — Tarbiat Modares University</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2016 – 2017 · Tehran</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Research</span>
+          <span class="tag">Finance</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>
+              Led the project <strong>“Integrating a Local Feature Selection and a Modified PLR Method for Stock Trading Points Prediction”</strong>.
+            </li>
+            <li>Developed a hybrid PLR + local feature selection framework for noisy, non-stationary stock data.</li>
+            <li>Improved turning point detection and trading signal precision with lower computational cost.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="page-section">
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <div class="section-subtitle">Strong quantitative foundation in statistics, IT systems, and industrial engineering.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">MicroMaster in Statistics & Data Science — MIT</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2022 – 2024</div>
+        </div>
+        <div class="card-body">
+          GPA 4.0/4.0 · Focus on probability, statistical inference, machine learning, and data analysis.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">M.Sc. in Information Technology Engineering — Tarbiat Modares University</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – 2022</div>
+        </div>
+        <div class="card-body">
+          Ranked 1st · Specialized in IT Systems and data-driven decision-making.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">B.Sc. in Industrial Engineering — K.N. Toosi University of Technology</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2009 – 2013</div>
+        </div>
+        <div class="card-body">
+          Ranked 1st · Systems analysis and operations research foundation.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="page-section">
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Programming & Tools</div>
+        <div class="card-body">
+          Python, R, MATLAB, C++, C#, SQL, MQL · TensorFlow, PyTorch, Keras, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Machine Learning & Statistics</div>
+        <div class="card-body">
+          Supervised & unsupervised learning, deep learning (CNNs, RNNs, LSTMs, transformers), time series (ARIMA/ARIMAX),
+          Gaussian Processes, optimization with evolutionary algorithms (GA, PSO, NSGA-II).
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Systems & Platforms</div>
+        <div class="card-body">
+          SQL/NoSQL databases, Microsoft Azure, Google Cloud, data structures, algorithms, and object-oriented programming.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS (sorted by category) -->
+  <section id="certifications" class="page-section">
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">Certifications</h2>
+        <div class="section-subtitle">
+          Organized by category — Machine Learning, Statistics, Deep Learning, and Cloud Engineering.
+        </div>
+      </div>
+
+      <!-- MACHINE LEARNING -->
+      <h3 style="color: var(--accent); margin-bottom: 0.8rem;">Machine Learning</h3>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">📊</span>
+            <a href="https://www.coursera.org/account/accomplishments/records/UMH9PCAA3XL9" target="_blank">
+              Machine Learning — Stanford University
+            </a>
           </div>
         </div>
+        <div class="card-tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Stanford</span>
+        </div>
+        <div class="card-body">Issued May 2024 • ID: UMH9PCAA3XL9</div>
+      </div>
 
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">M.Sc. in Information Technology Engineering — Tarbiat Modares University</div>
-            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – 2022</div>
-          </div>
-          <div class="card-body">
-            Ranked 1st · Specialized in IT Systems and data-driven decision-making.
+      <!-- STATISTICS & DATA SCIENCE -->
+      <h3 style="color: var(--accent); margin: 1.8rem 0 0.8rem;">Statistics & Data Science (MITx)</h3>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">📊</span>
+            <a href="https://courses.edx.org/certificates/335e339527c548e19a9be4c72da363fe" target="_blank">
+              Capstone Exam in Statistics & Data Science — MITx / edX
+            </a>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">B.Sc. in Industrial Engineering — K.N. Toosi University of Technology</div>
-            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2009 – 2013</div>
-          </div>
-          <div class="card-body">
-            Ranked 1st · Systems analysis and operations research foundation.
-          </div>
+        <div class="card-tags">
+          <span class="tag">MIT MicroMasters</span>
+          <span class="tag">Statistics</span>
         </div>
-      </section>
+        <div class="card-body">Issued Apr 2024 • ID: 335e339527c548e19a9be4c72da363fe</div>
+      </div>
 
-      <!-- SKILLS -->
-      <section id="skills" class="section-block">
-        <div class="section-header">
-          <h2 class="section-title">Skills</h2>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Programming & Tools</div>
-          <div class="card-body">
-            Python, R, MATLAB, C++, C#, SQL, MQL · TensorFlow, PyTorch, Keras, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn.
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">📊</span>
+            <a href="https://courses.edx.org/certificates/933756f365d844b0ab78ae32f4a42fa0" target="_blank">
+              Data Analysis: Statistical Modeling & Computation — MITx / edX
+            </a>
           </div>
         </div>
+        <div class="card-tags"><span class="tag">Statistics</span></div>
+        <div class="card-body">Issued May 2023 • ID: 933756f365d844b0ab78ae32f4a42fa0</div>
+      </div>
 
-        <div class="card">
-          <div class="card-title">Machine Learning & Statistics</div>
-          <div class="card-body">
-            Supervised & unsupervised learning, deep learning (CNNs, RNNs, LSTMs, transformers), time series (ARIMA/ARIMAX),
-            Gaussian Processes, optimization with evolutionary algorithms (GA, PSO, NSGA-II).
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">📊</span>
+            <a href="https://courses.edx.org/certificates/8e60f55f56c04b8a833889d809d39e2a" target="_blank">
+              Probability: The Science of Uncertainty — MITx / edX
+            </a>
           </div>
         </div>
+        <div class="card-tags"><span class="tag">Probability</span></div>
+        <div class="card-body">Issued Dec 2022 • ID: 8e60f55f56c04b8a833889d809d39e2a</div>
+      </div>
 
-        <div class="card">
-          <div class="card-title">Systems & Platforms</div>
-          <div class="card-body">
-            SQL/NoSQL databases, Microsoft Azure, Google Cloud, data structures, algorithms, and object-oriented programming.
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">📊</span>
+            <a href="https://courses.edx.org/certificates/b996da98b8c84c41b636604cc6c97132" target="_blank">
+              Fundamentals of Statistics — MITx / edX
+            </a>
           </div>
         </div>
-      </section>
-
-      <section id="certifications" class="section-block">
-  <div class="section-header">
-    <h2 class="section-title">Certifications</h2>
-    <div class="section-subtitle">
-      Organized by category — Machine Learning, Statistics, Deep Learning, and Cloud Engineering.
-    </div>
-  </div>
-
-  <!-- ===============================
-       CATEGORY 1 — MACHINE LEARNING  
-       =============================== -->
-  <h3 style="color: var(--accent); margin-bottom: 0.8rem;">Machine Learning</h3>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/UMH9PCAA3XL9" target="_blank">
-          Machine Learning — Stanford University
-        </a>
+        <div class="card-tags"><span class="tag">Statistics</span></div>
+        <div class="card-body">Issued Nov 2022 • ID: b996da98b8c84c41b636604cc6c97132</div>
       </div>
-    </div>
-    <div class="card-tags">
-      <span class="tag">Machine Learning</span>
-      <span class="tag">Stanford</span>
-    </div>
-    <div class="card-body">Issued May 2024 • ID: UMH9PCAA3XL9</div>
-  </div>
 
-
-  <!-- ===========================================
-       CATEGORY 2 — STATISTICS & DATA SCIENCE (MIT)
-       =========================================== -->
-  <h3 style="color: var(--accent); margin: 1.8rem 0 0.8rem;">Statistics & Data Science (MITx)</h3>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://courses.edx.org/certificates/335e339527c548e19a9be4c72da363fe" target="_blank">
-          Capstone Exam in Statistics & Data Science — MITx / edX
-        </a>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">📊</span>
+            <a href="https://courses.edx.org/certificates/76c9f4f89a254d8d942bad3dcbb60f69" target="_blank">
+              Machine Learning with Python — MITx / edX
+            </a>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Machine Learning</span></div>
+        <div class="card-body">Issued Jul 2022 • ID: 76c9f4f89a254d8d942bad3dcbb60f69</div>
       </div>
-    </div>
-    <div class="card-tags">
-      <span class="tag">MIT MicroMasters</span>
-      <span class="tag">Statistics</span>
-    </div>
-    <div class="card-body">Issued Apr 2024 • ID: 335e339527c548e19a9be4c72da363fe</div>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://courses.edx.org/certificates/933756f365d844b0ab78ae32f4a42fa0" target="_blank">
-          Data Analysis: Statistical Modeling & Computation — MITx / edX
-        </a>
+      <!-- DEEP LEARNING -->
+      <h3 style="color: var(--accent); margin: 1.8rem 0 0.8rem;">Deep Learning (DeepLearning.AI)</h3>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">🧠</span>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/JVUR8FAQCS4Q" target="_blank">
+              Deep Learning Specialization — DeepLearning.AI
+            </a>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Deep Learning</span>
+          <span class="tag">DLAI</span>
+        </div>
+        <div class="card-body">Issued Apr 2020 • ID: JVUR8FAQCS4Q</div>
       </div>
-    </div>
-    <div class="card-tags"><span class="tag">Statistics</span></div>
-    <div class="card-body">Issued May 2023 • ID: 933756f365d844b0ab78ae32f4a42fa0</div>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://courses.edx.org/certificates/8e60f55f56c04b8a833889d809d39e2a" target="_blank">
-          Probability: The Science of Uncertainty — MITx / edX
-        </a>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">🧠</span>
+            <a href="https://www.coursera.org/account/accomplishments/records/LY5KRK7DJS9N" target="_blank">
+              Convolutional Neural Networks — DeepLearning.AI
+            </a>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">CNN</span></div>
+        <div class="card-body">Issued Apr 2020 • ID: LY5KRK7DJS9N</div>
       </div>
-    </div>
-    <div class="card-tags"><span class="tag">Probability</span></div>
-    <div class="card-body">Issued Dec 2022 • ID: 8e60f55f56c04b8a833889d809d39e2a</div>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://courses.edx.org/certificates/b996da98b8c84c41b636604cc6c97132" target="_blank">
-          Fundamentals of Statistics — MITx / edX
-        </a>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">🧠</span>
+            <a href="https://www.coursera.org/account/accomplishments/records/JJFB9MY69UQW" target="_blank">
+              Improving Deep Neural Networks — DeepLearning.AI
+            </a>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">DNN</span></div>
+        <div class="card-body">Issued Apr 2020 • ID: JJFB9MY69UQW</div>
       </div>
-    </div>
-    <div class="card-tags"><span class="tag">Statistics</span></div>
-    <div class="card-body">Issued Nov 2022 • ID: b996da98b8c84c41b636604cc6c97132</div>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://courses.edx.org/certificates/76c9f4f89a254d8d942bad3dcbb60f69" target="_blank">
-          Machine Learning with Python — MITx / edX
-        </a>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">🧠</span>
+            <a href="https://www.coursera.org/account/accomplishments/records/5LT3DB4EXCEZ" target="_blank">
+              Neural Networks and Deep Learning — DeepLearning.AI
+            </a>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Neural Networks</span></div>
+        <div class="card-body">Issued Apr 2020 • ID: 5LT3DB4EXCEZ</div>
       </div>
-    </div>
-      <div class="card-tags"><span class="tag">Machine Learning</span></div>
-    <div class="card-body">Issued Jul 2022 • ID: 76c9f4f89a254d8d942bad3dcbb60f69</div>
-  </div>
 
-
-  <!-- ======================================
-       CATEGORY 3 — DEEP LEARNING (DLAI)
-       ====================================== -->
-  <h3 style="color: var(--accent); margin: 1.8rem 0 0.8rem;">Deep Learning (DeepLearning.AI)</h3>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/specialization/JVUR8FAQCS4Q" target="_blank">
-          Deep Learning Specialization — DeepLearning.AI
-        </a>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">🧠</span>
+            <a href="https://www.coursera.org/account/accomplishments/records/TN563B6KSELK" target="_blank">
+              Sequence Models — DeepLearning.AI
+            </a>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">RNN</span>
+          <span class="tag">LSTM</span>
+        </div>
+        <div class="card-body">Issued Apr 2020 • ID: TN563B6KSELK</div>
       </div>
-    </div>
-    <div class="card-tags">
-      <span class="tag">Deep Learning</span>
-      <span class="tag">DLAI</span>
-    </div>
-    <div class="card-body">Issued Apr 2020 • ID: JVUR8FAQCS4Q</div>
-  </div>
 
-  <!-- CNN -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/LY5KRK7DJS9N" target="_blank">
-          Convolutional Neural Networks — DeepLearning.AI
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">CNN</span></div>
-    <div class="card-body">Issued Apr 2020 • ID: LY5KRK7DJS9N</div>
-  </div>
-
-  <!-- Improving DNNs -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/JJFB9MY69UQW" target="_blank">
-          Improving Deep Neural Networks — DeepLearning.AI
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">DNN</span></div>
-    <div class="card-body">Issued Apr 2020 • ID: JJFB9MY69UQW</div>
-  </div>
-
-  <!-- Neural Networks -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/5LT3DB4EXCEZ" target="_blank">
-          Neural Networks and Deep Learning — DeepLearning.AI
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">Neural Networks</span></div>
-    <div class="card-body">Issued Apr 2020 • ID: 5LT3DB4EXCEZ</div>
-  </div>
-
-  <!-- Sequence Models -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/TN563B6KSELK" target="_blank">
-          Sequence Models — DeepLearning.AI
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">RNN</span><span class="tag">LSTM</span></div>
-    <div class="card-body">Issued Apr 2020 • ID: TN563B6KSELK</div>
-  </div>
-
-  <!-- Structuring ML Projects -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/G3CT3MP7LCWY" target="_blank">
-          Structuring Machine Learning Projects — DeepLearning.AI
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">ML Strategy</span></div>
-    <div class="card-body">Issued Apr 2020 • ID: G3CT3MP7LCWY</div>
-  </div>
-
-
-  <!-- ====================================
-       CATEGORY 4 — GOOGLE CLOUD ENGINEERING
-       ==================================== -->
-  <h3 style="color: var(--accent); margin: 1.8rem 0 0.8rem;">Cloud & ML Engineering (Google Cloud)</h3>
-
-  <!-- Specialization -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/specialization/RXPGDJJASHPL" target="_blank">
-          Machine Learning on Google Cloud Specialization
-        </a>
-      </div>
-    </div>
-    <div class="card-tags">
-      <span class="tag">Google Cloud</span>
-      <span class="tag">ML Engineering</span>
-    </div>
-    <div class="card-body">Issued Mar 2020 • ID: RXPGDJJASHPL</div>
-  </div>
-
-  <!-- Other Google Cloud courses -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/MGYB473M4LY4" target="_blank">
-          Build, Train & Deploy ML Models with Keras — Google Cloud
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">Keras</span></div>
-    <div class="card-body">Issued Mar 2020 • ID: MGYB473M4LY4</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/JKDY3LWHL992" target="_blank">
-          Feature Engineering — Google Cloud
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">Feature Engineering</span></div>
-    <div class="card-body">Issued Mar 2020 • ID: JKDY3LWHL992</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/ZPZZSN4QYS9M" target="_blank">
-          How Google Does Machine Learning — Google Cloud
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">Google ML</span></div>
-    <div class="card-body">Issued Mar 2020 • ID: ZPZZSN4QYS9M</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/TAQND8KQYVZG" target="_blank">
-          Launching into Machine Learning — Google Cloud
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">ML</span></div>
-    <div class="card-body">Issued Mar 2020 • ID: TAQND8KQYVZG</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        <a href="https://www.coursera.org/account/accomplishments/records/F7EK7YNJHW6U" target="_blank">
-          Machine Learning in the Enterprise — Google Cloud
-        </a>
-      </div>
-    </div>
-    <div class="card-tags"><span class="tag">ML Engineering</span></div>
-    <div class="card-body">Issued Mar 2020 • ID: F7EK7YNJHW6U</div>
-  </div>
-
-</section>
-
-  <!-- FLOATING CV BUTTON -->
-  <a href="Tahereh-Fahi-CV.pdf" class="floating-cv" target="_blank">
-    📄 CV
-  </a>
-
-  <footer>
-    <div>© <span id="year"></span> Tahereh Fahi</div>
-    <div>Built with HTML &amp; CSS · Hosted on GitHub Pages</div>
-  </footer>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme toggle with localStorage
-    const body = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const icon = document.getElementById('themeIcon');
-
-    function setTheme(theme) {
-      body.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      icon.textContent = theme === 'dark' ? '🌙' : '☀️';
-    }
-
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light' || stored === 'dark') {
-      setTheme(stored);
-    } else {
-      setTheme('dark');
-    }
-
-    toggle.addEventListener('click', () => {
-      const current = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      setTheme(current);
-    });
-  </script>
-</body>
-</html>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">🧠</span>
+            <a href="https://www.coursera.org/account/accomplishments/records/G3CT3MP7LCWY" target="_blank">
+              Structuring Machine Learning Projects — DeepLearning.AI
+            </a>
+          </div>
+        </div>
+        <div class="
