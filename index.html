@@ -1,317 +1,1047 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <title>Tahereh Fahi | Data Scientist</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Tahereh Fahi | Data Scientist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b1020;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #111827;
+      --bg-card: rgba(15,23,42,0.9);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.08);
+      --border-subtle: rgba(148,163,184,0.35);
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.55);
+      --shadow-card: 0 14px 30px rgba(15,23,42,0.8);
+    }
 
-        /* NAVIGATION */
-        nav {
-            background: rgba(15, 23, 42, 0.9);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(148,163,184,0.2);
-        }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-alt: #e5e7eb;
+      --bg-card: #ffffff;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --accent: #0284c7;
+      --accent-soft: rgba(37,99,235,0.06);
+      --border-subtle: rgba(148,163,184,0.6);
+      --shadow-soft: 0 18px 40px rgba(148,163,184,0.5);
+      --shadow-card: 0 10px 24px rgba(148,163,184,0.55);
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        nav a {
-            color: #93c5fd;
-            text-decoration: none;
-            font-size: 15px;
-            letter-spacing: 1px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, var(--bg) 45%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
 
-        /* SECTIONS */
-        section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    /* Top nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15,23,42,0.9);
+      border-bottom: 1px solid rgba(148,163,184,0.25);
+      backdrop-filter: blur(14px);
+    }
 
-        h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #e0e7ff;
-        }
+    [data-theme="light"] nav {
+      background: rgba(248,250,252,0.92);
+      border-bottom-color: rgba(148,163,184,0.5);
+    }
 
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding-top: 70px;
-        }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.65rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-        .hero img {
-            width: 260px;
-            border-radius: 18px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-            margin-bottom: 20px;
-        }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-        .hero h1 {
-            font-size: 40px;
-            margin: 10px 0;
-            color: #f1f5f9;
-        }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
 
-        .hero h3 {
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #94a3b8;
-        }
+    .nav-links a {
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      color: var(--text);
+      border: 1px solid transparent;
+      transition: all 0.16s ease-out;
+    }
 
-        .hero p {
-            max-width: 600px;
-            margin: auto;
-            color: #cbd5e1;
-            font-size: 18px;
-        }
+    .nav-links a:hover {
+      border-color: rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.75);
+      transform: translateY(-1px);
+    }
 
-        .cv-button {
-            background:#38bdf8;
-            color:#020617;
-            padding:12px 28px;
-            border-radius:10px;
-            font-weight:bold;
-            text-decoration:none;
-            font-size:18px;
-            display:inline-block;
-            margin-top: 30px;
-        }
+    [data-theme="light"] .nav-links a:hover {
+      background: rgba(226,232,240,0.9);
+    }
 
-        .cv-button:hover {
-            background:#7dd3fc;
-        }
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.8rem;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease-out;
+    }
 
-        /* CARDS */
-        .card {
-            background: rgba(15,23,42,0.85);
-            padding: 25px 30px;
-            border-radius: 14px;
-            border: 1px solid rgba(148,163,184,0.3);
-            margin-bottom: 30px;
-        }
+    .theme-toggle:hover {
+      background: rgba(15,23,42,0.8);
+      transform: translateY(-1px);
+    }
 
-        .card h3 {
-            margin-top: 0;
-            color: #bae6fd;
-        }
+    [data-theme="light"] .theme-toggle:hover {
+      background: rgba(226,232,240,0.9);
+    }
 
-        .card a {
-            color: #7dd3fc;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    /* HERO */
+    .hero {
+      max-width: 900px;
+      margin: 2.5rem auto 2rem;
+      padding: 0 1.25rem;
+      text-align: center;
+    }
 
-        .card a:hover {
-            color: #38bdf8;
-        }
+    .hero-inner {
+      border-radius: 22px;
+      padding: 2.2rem 1.8rem 2.4rem;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.25), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129,140,248,0.2), transparent 60%),
+        linear-gradient(135deg, #020617, #020617);
+      border: 1px solid rgba(148,163,184,0.55);
+      box-shadow: var(--shadow-soft);
+    }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
-            margin-top: 40px;
-        }
+    [data-theme="light"] .hero-inner {
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129,140,248,0.15), transparent 60%),
+        linear-gradient(135deg, #f9fafb, #e5e7eb);
+    }
 
-        footer a {
-            color: #7dd3fc;
-            text-decoration: none;
-        }
+    .hero-photo {
+      width: 230px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.9);
+      margin-bottom: 1rem;
+    }
 
-        footer a:hover {
-            color: #38bdf8;
-        }
-    </style>
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-name {
+      font-size: 2.3rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-role {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-summary {
+      max-width: 640px;
+      margin: 0.25rem auto 0;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      margin-top: 1.4rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.55rem 1.15rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.16s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(56,189,248,0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(56,189,248,0.8);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148,163,184,0.6);
+      color: var(--text);
+      background: rgba(15,23,42,0.7);
+    }
+
+    [data-theme="light"] .btn-ghost {
+      background: #e5e7eb;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15,23,42,0.95);
+    }
+
+    [data-theme="light"] .btn-ghost:hover {
+      background: #d1d5db;
+    }
+
+    .hero-meta {
+      margin-top: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .hero-meta a:hover {
+      text-decoration: underline;
+    }
+
+    /* LAYOUT: SIDEBAR + MAIN */
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.25rem;
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 4.5rem;
+      align-self: flex-start;
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 1.3rem 1.25rem 1.4rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+      font-size: 0.88rem;
+    }
+
+    .sidebar-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-section {
+      margin-bottom: 1.1rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-value {
+      color: var(--text);
+    }
+
+    .sidebar-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .sidebar-value a:hover {
+      text-decoration: underline;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-top: 0.4rem;
+    }
+
+    .sidebar-nav a {
+      font-size: 0.84rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.25rem 0.4rem;
+      border-radius: 999px;
+      transition: all 0.14s ease-out;
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(15,23,42,0.85);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    [data-theme="light"] .sidebar-nav a:hover {
+      background: #e5e7eb;
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .section-block {
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 1.6rem 1.5rem 1.7rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+    }
+
+    .section-header {
+      margin-bottom: 0.9rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* PROJECT CARDS */
+    .card {
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 0.9rem 1rem;
+      margin-top: 0.7rem;
+      background: rgba(15,23,42,0.95);
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+    }
+
+    [data-theme="light"] .card {
+      background: #ffffff;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(15,23,42,0.85);
+      border-color: var(--accent);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .card-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      color: var(--accent);
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+      font-size: 0.72rem;
+    }
+
+    .tag {
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(56,189,248,0.5);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .card-body ul {
+      margin-left: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .card-body li {
+      list-style: disc;
+      margin-bottom: 0.1rem;
+    }
+
+    /* FLOATING CV BUTTON */
+    .floating-cv {
+      position: fixed;
+      right: 1.4rem;
+      bottom: 1.4rem;
+      z-index: 60;
+      background: #22c55e;
+      color: #02140a;
+      font-size: 0.9rem;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 16px 36px rgba(34,197,94,0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border: 1px solid rgba(21,128,61,0.7);
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out, background 0.16s ease-out;
+    }
+
+    .floating-cv:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 42px rgba(34,197,94,0.8);
+      background: #4ade80;
+    }
+
+    @media (max-width: 640px) {
+      .floating-cv {
+        right: 0.85rem;
+        bottom: 0.9rem;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+      }
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 1.8rem auto 1.3rem;
+      padding: 0 1.25rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- TOP NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-left">
+        <span>TAHEREH FAHI</span>
+      </div>
+      <div class="nav-links">
+        <a href="#hero">Hero</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#courses">Certificates</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🌙</span>
+        <span style="font-size:0.75rem;">Theme</span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- HERO -->
-    <section id="hero" class="hero">
-        <img src="tahereh.jpg" alt="Tahereh Fahi">
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-inner">
+      <img src="tahereh.jpg" alt="Tahereh Fahi" class="hero-photo" />
+      <div class="hero-kicker">Data Science · Machine Learning · Optimization</div>
+      <h1 class="hero-name">Tahereh Fahi</h1>
+      <div class="hero-role">Data Scientist · ML Researcher</div>
+      <p class="hero-summary">
+        Data scientist with a MicroMaster in Statistics and Data Science (MIT) and top rankings in
+        B.Sc. and M.Sc. programs. Experienced in financial time series, environmental forecasting,
+        bioinformatics, and network science. Passionate about robust, data-driven decision-making and
+        human–AI collaboration.
+      </p>
 
-        <h1>Tahereh Fahi</h1>
-        <h3>Data Scientist • Machine Learning Researcher</h3>
+      <div class="hero-actions">
+        <a href="Tahereh-Fahi-CV.pdf" target="_blank" class="btn btn-primary">📄 View My CV</a>
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+      </div>
 
-        <p>
-            Data scientist with strong foundations in statistics, optimization, and deep learning —
-            experienced in financial time series, environmental forecasting, bioinformatics,
-            and complex networks. Passionate about data-driven decision making and applied machine learning.
+      <div class="hero-meta">
+        Based in Toronto, Canada ·
+        <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN LAYOUT: SIDEBAR + CONTENT -->
+  <div class="layout">
+    <!-- FLOATING SIDEBAR (scrolls with page) -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Profile</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Location</div>
+        <div class="sidebar-value">Toronto, Canada</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Email</div>
+        <div class="sidebar-value">
+          <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">GitHub</div>
+        <div class="sidebar-value">
+          <a href="https://github.com/tahereh-fahi" target="_blank">github.com/tahereh-fahi</a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">LinkedIn</div>
+        <div class="sidebar-value">
+          <a href="https://www.linkedin.com/in/tahereh-fahi" target="_blank">linkedin.com/in/tahereh-fahi</a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Navigate</div>
+        <div class="sidebar-nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#courses">Certificates</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+      <!-- ABOUT -->
+      <section id="about" class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">About</h2>
+          <div class="section-subtitle">
+            Data scientist with a background in industrial engineering, IT systems, and statistical data science.
+          </div>
+        </div>
+        <p style="font-size:0.92rem; color:var(--muted);">
+          I enjoy building machine learning solutions that connect rigorous models with real-world decisions.
+          My focus spans financial markets, environmental systems, bioinformatics, and complex networks,
+          often integrating time series, optimization, and deep learning.
         </p>
+      </section>
 
-        <!-- CV BUTTON -->
-        <a class="cv-button" href="Tahereh-Fahi-CV.pdf" target="_blank">
-            📄 View My CV
-        </a>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="card">
-            <p>
-                I am a Data Scientist with a MicroMaster in Statistics and Data Science from MIT,
-                with top rankings in both my B.Sc. and M.Sc. programs. My work spans financial markets,
-                environmental modeling, bioinformatics, and network science.
-            </p>
+      <!-- PROJECTS -->
+      <section id="projects" class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+          <div class="section-subtitle">
+            GitHub-linked projects first, followed by additional course and research projects.
+          </div>
         </div>
-    </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-        <h2>Experience</h2>
+        <!-- GITHUB-LINKED PROJECTS FIRST -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <a href="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb" target="_blank">
+                Stock Trading Points Prediction
+              </a>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Time Series</span>
+            <span class="tag">Finance</span>
+            <span class="tag">Feature Selection</span>
+          </div>
+          <div class="card-body">
+            Hybrid Piecewise Linear Representation (PLR) + Local Feature Selection (LFS) to detect turning points
+            and regime-specific indicators in stock market data.
+          </div>
+        </div>
 
         <div class="card">
-            <h3>Data Scientist — Roboself.ai</h3>
-            <p><strong>2018 — Present</strong></p>
+          <div class="card-header">
+            <div class="card-title">
+              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/TabularQL.ipynb" target="_blank">
+                Q-Learning for Text-based Games
+              </a>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">Q-Learning</span>
+          </div>
+          <div class="card-body">
+            Implemented Q-learning with linear function approximation for sparse-reward text-based environments,
+            achieving stable convergence and improved cumulative reward.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/tsne_pca_visualization.ipynb" target="_blank">
+                RNA-seq Dimensionality Reduction & Classification
+              </a>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Bioinformatics</span>
+            <span class="tag">Dimensionality Reduction</span>
+          </div>
+          <div class="card-body">
+            Applied PCA and t-SNE on noisy single-cell RNA-seq data and used supervised models to classify cell
+            types, validating clusters via cross-validation metrics.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/networks.ipynb" target="_blank">
+                Comparative Graph Analysis (Facebook vs Twitter)
+              </a>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Network Science</span>
+            <span class="tag">Graph Analysis</span>
+          </div>
+          <div class="card-body">
+            Explored assortativity, degree distributions, centrality, and power-law fits to highlight structural
+            differences and influence dynamics between social networks.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/CO2_TimeSeries.ipynb" target="_blank">
+                CO₂ Time Series Forecasting (ARIMA)
+              </a>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Time Series</span>
+            <span class="tag">Environmental Data</span>
+          </div>
+          <div class="card-body">
+            Built ARIMA models with residual diagnostics to forecast CO₂ concentrations and economic indicators,
+            achieving accurate short-term predictions.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/EXTRegressor.ipynb" target="_blank">
+                CPI & BER Inflation Forecasting (ARIMAX)
+              </a>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Econometrics</span>
+            <span class="tag">ARIMAX</span>
+          </div>
+          <div class="card-body">
+            Modeled relationships between CPI inflation and BER expectations using ARIMAX with external
+            regressors, improving predictive stability and accuracy.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/Gaussian_Processes.ipynb" target="_blank">
+                Gaussian Process Models for Environmental Data
+              </a>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Gaussian Processes</span>
+            <span class="tag">Spatial Modeling</span>
+          </div>
+          <div class="card-body">
+            Designed Gaussian Process models with custom kernels and hyperparameter tuning to interpolate ocean
+            currents and temperature fields with low prediction error.
+          </div>
+        </div>
+
+        <!-- Other notable projects (no direct GitHub link) -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">GANs for Realistic Image Synthesis</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Deep Learning</span>
+            <span class="tag">GAN</span>
+          </div>
+          <div class="card-body">
+            Trained PyTorch GANs to generate realistic synthetic imagery, improving adversarial stability and
+            latent-space representation.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">CNNs for Detection & Segmentation</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">CNN</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+          <div class="card-body">
+            Built CNN architectures with transfer learning and residual blocks for object detection and
+            segmentation, leveraging YOLO-based methods and style transfer.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Sequence Models with RNNs & Attention</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">NLP</span>
+            <span class="tag">RNN/LSTM</span>
+          </div>
+          <div class="card-body">
+            Implemented RNN, LSTM, and attention-based models for translation, sentiment analysis, and
+            trigger-word detection, outperforming n-gram baselines.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Emotion Recognition in Social Media Text</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">NLP</span>
+            <span class="tag">Social Media</span>
+          </div>
+          <div class="card-body">
+            Built deep architectures with embeddings for multi-label emotion prediction in noisy tweet data,
+            outperforming classic sentiment baselines.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Neural Networks from Scratch</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Deep Learning</span>
+            <span class="tag">NumPy</span>
+          </div>
+          <div class="card-body">
+            Implemented feedforward neural networks and logistic regression using only NumPy, verifying
+            gradients and achieving strong performance on synthetic datasets.
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <div class="section-subtitle">
+            Industry and research roles focused on data science, optimization, and time series modeling.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Data Scientist — Roboself.ai</div>
+            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – Present · Toronto</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Finance</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">Optimization</span>
+          </div>
+          <div class="card-body">
             <ul>
-                <li>Turning point detection in financial time series.</li>
-                <li>Hybrid Neural Networks + GA + PSO + NSGA-II.</li>
-                <li>Signal processing for feature extraction.</li>
+              <li>Developed algorithms to detect turning points in financial time series for early trend reversal detection.</li>
+              <li>Designed hybrid AI models combining Neural Networks, GA, PSO, and NSGA-II.</li>
+              <li>Applied signal processing for feature extraction, noise reduction, and model robustness.</li>
             </ul>
+          </div>
         </div>
 
         <div class="card">
-            <h3>Graduate Research Assistant — Tarbiat Modares University</h3>
-            <p><strong>2016 — 2017</strong></p>
+          <div class="card-header">
+            <div class="card-title">Graduate Research Assistant — Tarbiat Modares University</div>
+            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2016 – 2017 · Tehran</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Research</span>
+            <span class="tag">Finance</span>
+          </div>
+          <div class="card-body">
             <ul>
-                <li>
-                    <a href="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb" target="_blank">
-                        Stock Trading Points Prediction (GitHub)
-                    </a>
-                </li>
-                <li>Hybrid PLR + LFS model for local stock pattern detection.</li>
+              <li>
+                Led the project
+                <strong>“Integrating a Local Feature Selection and a Modified PLR Method for Stock Trading Points Prediction”</strong>.
+              </li>
+              <li>Developed a hybrid PLR + local feature selection framework for noisy, non-stationary stock data.</li>
+              <li>Improved turning point detection and trading signal precision with lower computational cost.</li>
             </ul>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <h2>Projects</h2>
-
-        <!-- ⭐ GITHUB PROJECTS FIRST ⭐ -->
-
-        <div class="card">
-            <h3><a href="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb" target="_blank">Stock Trading Points Prediction</a></h3>
-            <p>Hybrid PLR + Local Feature Selection for financial turning-point detection.</p>
+      <!-- EDUCATION -->
+      <section id="education" class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <div class="section-subtitle">Strong quantitative foundation in statistics, IT systems, and industrial engineering.</div>
         </div>
 
         <div class="card">
-            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/TabularQL.ipynb" target="_blank">Q-Learning for Text-based Games</a></h3>
-            <p>Reinforcement learning with linear function approximation.</p>
+          <div class="card-header">
+            <div class="card-title">MicroMaster in Statistics & Data Science — MIT</div>
+            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2022 – 2024</div>
+          </div>
+          <div class="card-body">
+            GPA 4.0/4.0 · Focus on probability, statistical inference, machine learning, and data analysis.
+          </div>
         </div>
 
         <div class="card">
-            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/tsne_pca_visualization.ipynb" target="_blank">RNA-seq Dimensionality Reduction</a></h3>
-            <p>PCA and t-SNE applied to single-cell RNA sequencing.</p>
+          <div class="card-header">
+            <div class="card-title">M.Sc. in Information Technology Engineering — Tarbiat Modares University</div>
+            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – 2022</div>
+          </div>
+          <div class="card-body">
+            Ranked 1st · Specialized in IT Systems and data-driven decision-making.
+          </div>
         </div>
 
         <div class="card">
-            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/networks.ipynb" target="_blank">Comparative Graph Analysis</a></h3>
-            <p>Facebook vs Twitter network structure comparison.</p>
+          <div class="card-header">
+            <div class="card-title">B.Sc. in Industrial Engineering — K.N. Toosi University of Technology</div>
+            <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2009 – 2013</div>
+          </div>
+          <div class="card-body">
+            Ranked 1st · Systems analysis and operations research foundation.
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">Skills</h2>
         </div>
 
         <div class="card">
-            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/CO2_TimeSeries.ipynb" target="_blank">CO₂ Forecasting (ARIMA)</a></h3>
-            <p>Environmental time-series modeling and forecasting.</p>
+          <div class="card-title">Programming & Tools</div>
+          <div class="card-body">
+            Python, R, MATLAB, C++, C#, SQL, MQL · TensorFlow, PyTorch, Keras, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn.
+          </div>
         </div>
 
         <div class="card">
-            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/EXTRegressor.ipynb" target="_blank">CPI & BER Inflation Forecasting</a></h3>
-            <p>External-regressor ARIMAX model for inflation.</p>
+          <div class="card-title">Machine Learning & Statistics</div>
+          <div class="card-body">
+            Supervised & unsupervised learning, deep learning (CNNs, RNNs, LSTMs, transformers), time series (ARIMA/ARIMAX),
+            Gaussian Processes, optimization with evolutionary algorithms (GA, PSO, NSGA-II).
+          </div>
         </div>
 
         <div class="card">
-            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/Gaussian_Processes.ipynb" target="_blank">Gaussian Process Models</a></h3>
-            <p>Spatial modeling of environmental variables.</p>
+          <div class="card-title">Systems & Platforms</div>
+          <div class="card-body">
+            SQL/NoSQL databases, Microsoft Azure, Google Cloud, data structures, algorithms, and object-oriented programming.
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSES / CERTIFICATES -->
+      <section id="courses" class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">Certificates & Courses</h2>
         </div>
 
-        <!-- ⭐ NON-LINKED PROJECTS AFTER ⭐ -->
-
-        <div class="card"><h3>GANs for Image Synthesis</h3><p>Built PyTorch GANs for realistic images.</p></div>
-        <div class="card"><h3>CNN Object Detection</h3><p>YOLO and residual CNN architectures.</p></div>
-        <div class="card"><h3>Sequence Models</h3><p>LSTM, GRU, and attention networks.</p></div>
-        <div class="card"><h3>Emotion Recognition</h3><p>Deep learning for detecting emotions in text.</p></div>
-        <div class="card"><h3>Optimization Strategies</h3><p>Dropout, batch norm, and regularization.</p></div>
-        <div class="card"><h3>Transfer Learning</h3><p>Model adaptation using pre-trained networks.</p></div>
-        <div class="card"><h3>DNN From Scratch</h3><p>NumPy-based forward/backprop implementation.</p></div>
-
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education">
-        <h2>Education</h2>
-
-        <div class="card"><h3>MIT MicroMaster — Statistics & Data Science</h3><p>2022–2024 • GPA: 4.0/4.0</p></div>
-        <div class="card"><h3>M.Sc. IT Engineering — Tarbiat Modares University</h3><p>Ranked 1st</p></div>
-        <div class="card"><h3>B.Sc. Industrial Engineering — K.N. Toosi University</h3><p>Ranked 1st</p></div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-        <h2>Skills</h2>
         <div class="card">
-            <h3>Programming</h3><p>Python, R, MATLAB, C++, C#, SQL</p>
-            <h3>Machine Learning</h3><p>CNNs, RNNs, Transformers, RL</p>
-            <h3>Data Science</h3><p>Time Series, Optimization, Bioinformatics</p>
+          <div class="card-title">Machine Learning on Google Cloud — Coursera (2020)</div>
+          <div class="card-body">
+            Vertex AI, AutoML, BigQuery ML, distributed TensorFlow, ML pipelines, and model deployment on GCP.
+          </div>
         </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact</h2>
+        <div class="card">
+          <div class="card-title">Deep Learning Specialization — deeplearning.ai (2020)</div>
+          <div class="card-body">
+            Built CNNs, RNNs, LSTMs, and transformers using TensorFlow; structured ML projects for real-world applications.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Machine Learning — Stanford University (Coursera, 2024)</div>
+          <div class="card-body">
+            Core machine learning algorithms, model evaluation, and practical ML workflows.
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <div class="section-subtitle">Open to data science and research roles, collaborations, and conversations.</div>
+        </div>
         <div class="card" style="text-align:center;">
+          <div class="card-body">
             <p>Email: <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a></p>
-            <p>Location: Toronto, Canada</p>
-            <p>
-                GitHub: <a href="https://github.com/tahereh-fahi" target="_blank">github.com/tahereh-fahi</a><br>
-                LinkedIn: <a href="https://www.linkedin.com/in/tahereh-fahi" target="_blank">linkedin.com/in/tahereh-fahi</a>
-            </p>
+            <p>GitHub: <a href="https://github.com/tahereh-fahi" target="_blank">github.com/tahereh-fahi</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/tahereh-fahi" target="_blank">linkedin.com/in/tahereh-fahi</a></p>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <footer>
-        © <script>document.write(new Date().getFullYear());</script> Tahereh Fahi
-    </footer>
+    </main>
+  </div>
 
+  <!-- FLOATING CV BUTTON -->
+  <a href="Tahereh-Fahi-CV.pdf" class="floating-cv" target="_blank">
+    📄 CV
+  </a>
+
+  <footer>
+    <div>© <span id="year"></span> Tahereh Fahi</div>
+    <div>Built with HTML &amp; CSS · Hosted on GitHub Pages</div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const body = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    function setTheme(theme) {
+      body.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') {
+      setTheme(stored);
+    } else {
+      setTheme('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      const current = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(current);
+    });
+  </script>
 </body>
 </html>
