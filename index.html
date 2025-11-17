@@ -1,22 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tahereh Fahi | Data Scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(148,163,184,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #e0e7ff;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding-top: 70px;
+        }
+
+        .hero img {
+            width: 260px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin: 10px 0;
+            color: #f1f5f9;
+        }
+
+        .hero h3 {
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #94a3b8;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: auto;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        /* CARDS */
+        .card {
+            background: rgba(15,23,42,0.85);
+            padding: 25px 30px;
+            border-radius: 14px;
+            border: 1px solid rgba(148,163,184,0.3);
+            margin-bottom: 30px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #bae6fd;
+        }
+
+        /* LISTS */
+        ul {
+            padding-left: 20px;
+        }
+
+        /* CONTACT FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #7dd3fc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
 <body>
 
-<div style="max-width: 900px; margin: 60px auto; text-align: center; font-family: Arial;">
-    
-    <img src="tahereh.jpg" alt="Tahereh Fahi" 
-         style="width: 230px; border-radius: 14px; margin-bottom: 20px;">
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <h1 style="font-size: 36px; margin-bottom: 10px;">Tahereh Fahi</h1>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <img src="tahereh.jpg" alt="Tahereh Fahi">
+        <h1>Tahereh Fahi</h1>
+        <h3>Data Scientist • Machine Learning Researcher</h3>
 
-    <h2 style="font-size: 22px; color: #666; margin-bottom: 20px;">
-        Data Scientist & Machine Learning Researcher
-    </h2>
+        <p>
+            Data scientist with strong foundations in statistics, optimization, and deep learning —
+            experienced in financial time series, environmental forecasting, bioinformatics,
+            and complex networks. Passionate about data-driven decision making and applied machine learning.
+        </p>
+    </section>
 
-    <p style="font-size: 18px; color: #444; max-width: 650px; margin: 0 auto; line-height: 1.5;">
-        Data scientist with strong foundations in statistics, optimization, 
-        and deep learning — with experience in financial time series, 
-        environmental forecasting, bioinformatics, and network science.
-    </p>
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>
+                I am a Data Scientist with a MicroMaster in Statistics and Data Science from MIT,
+                with top rankings in both my B.Sc. and M.Sc. programs. My work spans financial markets,
+                environmental modeling, bioinformatics, and network science. I enjoy building models
+                that extract real insights from messy, complex data.
+            </p>
+        </div>
+    </section>
 
-</div>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="card">
+            <h3>Data Scientist — Roboself.ai (Toronto, Canada)</h3>
+            <p><strong>2018 — Present</strong></p>
+            <ul>
+                <li>Developed turning point detection algorithms for financial time series.</li>
+                <li>Created hybrid AI models using Neural Networks, GA, PSO, and NSGA-II.</li>
+                <li>Performed signal processing for feature extraction and noise reduction.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Graduate Research Assistant — Tarbiat Modares University</h3>
+            <p><strong>2016 — 2017</strong></p>
+            <ul>
+                <li>Integrated PLR segmentation with local feature selection for stock trading signals.</li>
+                <li>Improved trend reversal prediction on real stock market data.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="card">
+            <h3>GANs for Realistic Image Generation</h3>
+            <p>Implemented GAN architectures to generate high-quality synthetic images.</p>
+        </div>
+
+        <div class="card">
+            <h3>ARIMA & ARIMAX Forecasting</h3>
+            <p>Forecasted CO₂ levels, CPI inflation, and economic indicators using statistical models.</p>
+        </div>
+
+        <div class="card">
+            <h3>Single-Cell RNA-Seq Analysis</h3>
+            <p>Used PCA, t-SNE, and supervised learning to classify and cluster genomic data.</p>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="card">
+            <h3>MIT — MicroMaster in Statistics and Data Science</h3>
+            <p>2022 – 2024 • GPA: 4.0/4.0</p>
+        </div>
+
+        <div class="card">
+            <h3>M.Sc. in Information Technology Engineering — Tarbiat Modares University</h3>
+            <p>Top Rank • GPA: 3.92/4.0</p>
+        </div>
+
+        <div class="card">
+            <h3>B.Sc. in Industrial Engineering — K.N. Toosi University of Technology</h3>
+            <p>Ranked 1st in Program</p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>Skills</h2>
+
+        <div class="card">
+            <h3>Programming</h3>
+            <p>Python, R, MATLAB, C++, C#, SQL</p>
+
+            <h3>Machine Learning & AI</h3>
+            <p>Deep Learning, CNNs, RNNs, LSTMs, Transformers, Reinforcement Learning</p>
+
+            <h3>Data Science</h3>
+            <p>Time Series, Signal Processing, Optimization, Bioinformatics</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+
+        <div class="card" style="text-align: center;">
+            <p>Email: <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a></p>
+            <p>Location: Toronto, Canada</p>
+            <p>
+                GitHub: <a href="https://github.com/tahereh-fahi" target="_blank">github.com/tahereh-fahi</a><br>
+                LinkedIn: <a href="https://www.linkedin.com/in/tahereh-fahi" target="_blank">linkedin.com/in/tahereh-fahi</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        © <script>document.write(new Date().getFullYear());</script> Tahereh Fahi
+    </footer>
 
 </body>
+</html>
