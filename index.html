@@ -59,7 +59,7 @@
             color: #e0e7ff;
         }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             text-align: center;
             padding-top: 70px;
@@ -123,14 +123,15 @@
 
         .card a {
             color: #7dd3fc;
-            text-decoration: underline;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .card a:hover {
             color: #38bdf8;
         }
 
-        /* CONTACT FOOTER */
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 30px;
@@ -164,7 +165,7 @@
         </ul>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section id="hero" class="hero">
         <img src="tahereh.jpg" alt="Tahereh Fahi">
 
@@ -190,8 +191,7 @@
             <p>
                 I am a Data Scientist with a MicroMaster in Statistics and Data Science from MIT,
                 with top rankings in both my B.Sc. and M.Sc. programs. My work spans financial markets,
-                environmental modeling, bioinformatics, and network science. I enjoy building models
-                that extract meaningful insights from complex data.
+                environmental modeling, bioinformatics, and network science.
             </p>
         </div>
     </section>
@@ -201,12 +201,12 @@
         <h2>Experience</h2>
 
         <div class="card">
-            <h3>Data Scientist — Roboself.ai (Toronto, Canada)</h3>
+            <h3>Data Scientist — Roboself.ai</h3>
             <p><strong>2018 — Present</strong></p>
             <ul>
-                <li>Developed turning point detection algorithms for financial time series.</li>
-                <li>Created hybrid AI models using Neural Networks, GA, PSO, and NSGA-II.</li>
-                <li>Performed signal processing for feature extraction and noise reduction.</li>
+                <li>Turning point detection in financial time series.</li>
+                <li>Hybrid Neural Networks + GA + PSO + NSGA-II.</li>
+                <li>Signal processing for feature extraction.</li>
             </ul>
         </div>
 
@@ -219,7 +219,7 @@
                         Stock Trading Points Prediction (GitHub)
                     </a>
                 </li>
-                <li>Improved turning point detection & feature selection for financial time series.</li>
+                <li>Hybrid PLR + LFS model for local stock pattern detection.</li>
             </ul>
         </div>
     </section>
@@ -228,15 +228,90 @@
     <section id="projects">
         <h2>Projects</h2>
 
-        <!-- ⭐ GITHUB-LINKED PROJECTS FIRST ⭐ -->
+        <!-- ⭐ GITHUB PROJECTS FIRST ⭐ -->
 
         <div class="card">
-            <h3>
-              <a href="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb" target="_blank">
-                Stock Trading Points Prediction
-              </a>
-            </h3>
-            <p>Hybrid PLR + Local Feature Selection for stock turning point detection.</p>
+            <h3><a href="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb" target="_blank">Stock Trading Points Prediction</a></h3>
+            <p>Hybrid PLR + Local Feature Selection for financial turning-point detection.</p>
         </div>
 
-        <div cla
+        <div class="card">
+            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/TabularQL.ipynb" target="_blank">Q-Learning for Text-based Games</a></h3>
+            <p>Reinforcement learning with linear function approximation.</p>
+        </div>
+
+        <div class="card">
+            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/tsne_pca_visualization.ipynb" target="_blank">RNA-seq Dimensionality Reduction</a></h3>
+            <p>PCA and t-SNE applied to single-cell RNA sequencing.</p>
+        </div>
+
+        <div class="card">
+            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/networks.ipynb" target="_blank">Comparative Graph Analysis</a></h3>
+            <p>Facebook vs Twitter network structure comparison.</p>
+        </div>
+
+        <div class="card">
+            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/CO2_TimeSeries.ipynb" target="_blank">CO₂ Forecasting (ARIMA)</a></h3>
+            <p>Environmental time-series modeling and forecasting.</p>
+        </div>
+
+        <div class="card">
+            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/EXTRegressor.ipynb" target="_blank">CPI & BER Inflation Forecasting</a></h3>
+            <p>External-regressor ARIMAX model for inflation.</p>
+        </div>
+
+        <div class="card">
+            <h3><a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/Gaussian_Processes.ipynb" target="_blank">Gaussian Process Models</a></h3>
+            <p>Spatial modeling of environmental variables.</p>
+        </div>
+
+        <!-- ⭐ NON-LINKED PROJECTS AFTER ⭐ -->
+
+        <div class="card"><h3>GANs for Image Synthesis</h3><p>Built PyTorch GANs for realistic images.</p></div>
+        <div class="card"><h3>CNN Object Detection</h3><p>YOLO and residual CNN architectures.</p></div>
+        <div class="card"><h3>Sequence Models</h3><p>LSTM, GRU, and attention networks.</p></div>
+        <div class="card"><h3>Emotion Recognition</h3><p>Deep learning for detecting emotions in text.</p></div>
+        <div class="card"><h3>Optimization Strategies</h3><p>Dropout, batch norm, and regularization.</p></div>
+        <div class="card"><h3>Transfer Learning</h3><p>Model adaptation using pre-trained networks.</p></div>
+        <div class="card"><h3>DNN From Scratch</h3><p>NumPy-based forward/backprop implementation.</p></div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="card"><h3>MIT MicroMaster — Statistics & Data Science</h3><p>2022–2024 • GPA: 4.0/4.0</p></div>
+        <div class="card"><h3>M.Sc. IT Engineering — Tarbiat Modares University</h3><p>Ranked 1st</p></div>
+        <div class="card"><h3>B.Sc. Industrial Engineering — K.N. Toosi University</h3><p>Ranked 1st</p></div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="card">
+            <h3>Programming</h3><p>Python, R, MATLAB, C++, C#, SQL</p>
+            <h3>Machine Learning</h3><p>CNNs, RNNs, Transformers, RL</p>
+            <h3>Data Science</h3><p>Time Series, Optimization, Bioinformatics</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="card" style="text-align:center;">
+            <p>Email: <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a></p>
+            <p>Location: Toronto, Canada</p>
+            <p>
+                GitHub: <a href="https://github.com/tahereh-fahi" target="_blank">github.com/tahereh-fahi</a><br>
+                LinkedIn: <a href="https://www.linkedin.com/in/tahereh-fahi" target="_blank">linkedin.com/in/tahereh-fahi</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        © <script>document.write(new Date().getFullYear());</script> Tahereh Fahi
+    </footer>
+
+</body>
+</html>
