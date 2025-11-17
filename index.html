@@ -271,9 +271,27 @@
     }
     .card:hover {
       border-color: var(--accent);
-      box-shadow: 0 0 12px rgba(56,189,248,0.45);
-      transform: translateY(-3px) rotateX(1deg) rotateY(-1deg);
+      box-shadow: 0 0 12px rgba(56,189,248,0.35);
+      transform: translateY(-2px);
     }
+
+    /* Linked vs nonlinked project cards */
+    .card.linked:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(56,189,248,0.55);
+      transform: translateY(-5px) rotateX(1.5deg) rotateY(-1.5deg);
+      cursor: pointer;
+    }
+    .card.nonlinked:hover {
+      border-color: var(--border-subtle);
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+    }
+    .card-title .link-icon {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
     .card-header {
       display: flex;
       justify-content: space-between;
@@ -570,25 +588,25 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (MERGED) -->
   <section id="projects" class="page-section">
     <div class="section-block fade-in">
       <div class="section-header">
-        <h2 class="section-title">GitHub Projects</h2>
+        <h2 class="section-title">Projects</h2>
         <div class="section-subtitle">
-          Selected projects with public code — forecasting, reinforcement learning, bioinformatics, and graph analysis.
+          Unified view of GitHub and non-GitHub projects — clickable ones marked with a ↗ icon.
         </div>
       </div>
 
       <div class="projects-grid">
-        <!-- GITHUB PROJECTS -->
-        <div class="card reveal">
+
+        <!-- LINKED PROJECTS -->
+        <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb">
           <div class="card-header">
             <div class="card-title">
               <span>📈</span>
-              <a href="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb" target="_blank">
-                Stock Trading Points Prediction
-              </a>
+              Stock Trading Points Prediction
+              <span class="link-icon">↗</span>
             </div>
           </div>
           <div class="card-tags">
@@ -596,17 +614,16 @@
             <span class="tag">Finance</span>
           </div>
           <div class="card-body">
-            Hybrid PLR + Local Feature Selection to detect turning points and regime-specific indicators in noisy stock data.
+            Hybrid PLR + local feature selection to detect turning points and regime shifts in noisy markets.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/TabularQL.ipynb">
           <div class="card-header">
             <div class="card-title">
               <span>🤖</span>
-              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/TabularQL.ipynb" target="_blank">
-                Q-Learning for Text-based Games
-              </a>
+              Q-Learning for Text-based Games
+              <span class="link-icon">↗</span>
             </div>
           </div>
           <div class="card-tags">
@@ -614,18 +631,16 @@
             <span class="tag">Q-Learning</span>
           </div>
           <div class="card-body">
-            Implemented Q-learning with linear function approximation for sparse-reward text-based environments,
-            achieving stable convergence and improved cumulative reward.
+            Stable Q-learning with linear function approximation in sparse-reward text environments.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/tsne_pca_visualization.ipynb">
           <div class="card-header">
             <div class="card-title">
               <span>🧬</span>
-              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/tsne_pca_visualization.ipynb" target="_blank">
-                RNA-seq Dimensionality Reduction & Classification
-              </a>
+              RNA-seq Analysis (PCA / t-SNE)
+              <span class="link-icon">↗</span>
             </div>
           </div>
           <div class="card-tags">
@@ -633,56 +648,50 @@
             <span class="tag">Dimensionality Reduction</span>
           </div>
           <div class="card-body">
-            Applied PCA and t-SNE on single-cell RNA-seq data and trained classifiers for cell-type identification with
-            validation via cross-validation metrics.
+            Dimensionality reduction and supervised classification on high-dimensional RNA-seq data.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/networks.ipynb">
           <div class="card-header">
             <div class="card-title">
               <span>🌐</span>
-              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/networks.ipynb" target="_blank">
-                Comparative Graph Analysis (Facebook vs Twitter)
-              </a>
+              Comparative Graph Analysis
+              <span class="link-icon">↗</span>
             </div>
           </div>
           <div class="card-tags">
             <span class="tag">Network Science</span>
-            <span class="tag">Graph Analysis</span>
+            <span class="tag">Graphs</span>
           </div>
           <div class="card-body">
-            Explored assortativity, degree distributions, centrality, and power-law fits to highlight structural
-            differences and influence patterns between large social networks.
+            Structural comparison of social networks via degree, centrality, and assortativity metrics.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/CO2_TimeSeries.ipynb">
           <div class="card-header">
             <div class="card-title">
               <span>📈</span>
-              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/CO2_TimeSeries.ipynb" target="_blank">
-                CO₂ Time Series Forecasting (ARIMA)
-              </a>
+              CO₂ Time Series Forecasting (ARIMA)
+              <span class="link-icon">↗</span>
             </div>
           </div>
           <div class="card-tags">
             <span class="tag">Time Series</span>
-            <span class="tag">Environmental Data</span>
+            <span class="tag">Environmental</span>
           </div>
           <div class="card-body">
-            Built ARIMA models with residual diagnostics to forecast CO₂ concentrations and economic indicators,
-            achieving accurate short-term predictions.
+            Classical ARIMA forecasting with residual diagnostics on CO₂ and related economic indicators.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/EXTRegressor.ipynb">
           <div class="card-header">
             <div class="card-title">
               <span>📊</span>
-              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/EXTRegressor.ipynb" target="_blank">
-                CPI & BER Inflation Forecasting (ARIMAX)
-              </a>
+              CPI & BER Inflation Forecasting (ARIMAX)
+              <span class="link-icon">↗</span>
             </div>
           </div>
           <div class="card-tags">
@@ -690,43 +699,29 @@
             <span class="tag">ARIMAX</span>
           </div>
           <div class="card-body">
-            Modeled relationships between CPI inflation and BER expectations using ARIMAX with external
-            regressors, improving predictive stability and accuracy.
+            ARIMAX models with external regressors to forecast inflation and survey-based expectations.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/Gaussian_Processes.ipynb">
           <div class="card-header">
             <div class="card-title">
-              <span>📈</span>
-              <a href="https://github.com/tahereh-fahi/AI-ML-projects/blob/main/Gaussian_Processes.ipynb" target="_blank">
-                Gaussian Process Models for Environmental Data
-              </a>
+              <span>📉</span>
+              Gaussian Process Models
+              <span class="link-icon">↗</span>
             </div>
           </div>
           <div class="card-tags">
             <span class="tag">Gaussian Processes</span>
-            <span class="tag">Spatial Modeling</span>
+            <span class="tag">Environmental Data</span>
           </div>
           <div class="card-body">
-            Designed Gaussian Process models with custom kernels and hyperparameter tuning to interpolate ocean
-            currents and temperature fields with low prediction error.
+            GP regression with custom kernels for spatial and temporal environmental signals.
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- OTHER PROJECTS -->
-    <div class="section-block fade-in">
-      <div class="section-header">
-        <h2 class="section-title">Other Projects</h2>
-        <div class="section-subtitle">
-          Additional projects from coursework, research, and self-directed work.
-        </div>
-      </div>
-
-      <div class="projects-grid">
-        <div class="card reveal">
+        <!-- NON-LINKED PROJECTS (short descriptions) -->
+        <div class="card reveal nonlinked">
           <div class="card-header">
             <div class="card-title">
               <span>🧠</span>
@@ -734,15 +729,15 @@
             </div>
           </div>
           <div class="card-tags">
-            <span class="tag">Deep Learning</span>
             <span class="tag">GAN</span>
+            <span class="tag">Computer Vision</span>
           </div>
           <div class="card-body">
-            Trained GAN architectures to generate realistic synthetic images and studied stability improvements and latent space structure.
+            Trained GANs to generate realistic images while stabilizing adversarial training.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal nonlinked">
           <div class="card-header">
             <div class="card-title">
               <span>🧠</span>
@@ -751,15 +746,14 @@
           </div>
           <div class="card-tags">
             <span class="tag">CNN</span>
-            <span class="tag">Computer Vision</span>
+            <span class="tag">Vision</span>
           </div>
           <div class="card-body">
-            Built CNN architectures with transfer learning and residual blocks for detection and segmentation
-            tasks, including experiments with YOLO-style pipelines.
+            Applied CNN architectures and transfer learning for object detection and image segmentation tasks.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal nonlinked">
           <div class="card-header">
             <div class="card-title">
               <span>🧠</span>
@@ -771,12 +765,11 @@
             <span class="tag">RNN/LSTM</span>
           </div>
           <div class="card-body">
-            Implemented RNN, LSTM, and attention-based models for translation, sentiment analysis, and
-            trigger-word detection, outperforming n-gram baselines.
+            Built RNN and attention-based models for sequence tasks like translation and trigger-word detection.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal nonlinked">
           <div class="card-header">
             <div class="card-title">
               <span>📊</span>
@@ -788,12 +781,11 @@
             <span class="tag">Social Media</span>
           </div>
           <div class="card-body">
-            Built deep architectures with embeddings for multi-label emotion prediction in noisy tweet data,
-            surpassing classic sentiment models.
+            Predicted fine-grained emotions from noisy social media data using deep text models.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal nonlinked">
           <div class="card-header">
             <div class="card-title">
               <span>🧠</span>
@@ -801,16 +793,15 @@
             </div>
           </div>
           <div class="card-tags">
-            <span class="tag">Deep Learning</span>
             <span class="tag">NumPy</span>
+            <span class="tag">From Scratch</span>
           </div>
           <div class="card-body">
-            Implemented feedforward neural networks and logistic regression using only NumPy, verifying gradients and
-            achieving strong performance on synthetic datasets.
+            Implemented feedforward networks and logistic regression purely with NumPy and manual backprop.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal nonlinked">
           <div class="card-header">
             <div class="card-title">
               <span>📊</span>
@@ -822,12 +813,11 @@
             <span class="tag">Regularization</span>
           </div>
           <div class="card-body">
-            Explored dropout, batch normalization, learning rate schedules, and initialization strategies for improving
-            training stability and generalization in deep models.
+            Explored dropout, batchnorm, learning-rate schedules, and initialization schemes for deep models.
           </div>
         </div>
 
-        <div class="card reveal">
+        <div class="card reveal nonlinked">
           <div class="card-header">
             <div class="card-title">
               <span>🧠</span>
@@ -838,10 +828,10 @@
             <span class="tag">Transfer Learning</span>
           </div>
           <div class="card-body">
-            Applied transfer learning to new tasks with limited data, performing bias–variance analysis and model error
-            diagnosis to refine architectures and training regimes.
+            Adapted pretrained models to new tasks and analyzed error patterns to refine architectures.
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1346,6 +1336,15 @@
     sections.forEach(s => {
       const el = document.getElementById(s.id);
       if (el) sectionObserver.observe(el);
+    });
+
+    // Make linked project cards clickable
+    document.querySelectorAll(".card.linked").forEach(card => {
+      const url = card.getAttribute("data-link");
+      if (!url) return;
+      card.addEventListener("click", () => {
+        window.open(url, "_blank");
+      });
     });
   </script>
 </body>
