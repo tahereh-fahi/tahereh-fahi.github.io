@@ -1,4 +1,594 @@
-<!-- PROJECTS (MERGED WITH TAG-STYLE KEYWORDS) -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tahereh Fahi | Data Scientist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================
+       THEME VARIABLES
+    ============================ */
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #1e293b;
+      --bg-card: #111827;
+      --text: #e5e9f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --border-subtle: rgba(148,163,184,0.22);
+      --radius: 12px;
+      --shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-alt: #e5e7eb;
+      --bg-card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --border-subtle: rgba(148,163,184,0.4);
+      --shadow: 0 6px 16px rgba(148,163,184,0.25);
+    }
+
+    /* Fonts */
+    body, .card-body, .profile-summary, .section-subtitle {
+      font-family: "Inter", system-ui, sans-serif;
+    }
+    .section-title,
+    .profile-name,
+    .card-title,
+    nav .nav-left {
+      font-family: "DM Sans", system-ui, sans-serif;
+    }
+
+    /* ============================
+       BASE RESET
+    ============================ */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at top, rgba(56,189,248,0.12), transparent 55%),
+        radial-gradient(circle at bottom, rgba(129,140,248,0.1), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    /* ============================
+       NAVIGATION
+    ============================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15,23,42,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    [data-theme="light"] nav {
+      background: rgba(255,255,255,0.9);
+    }
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-left {
+      font-size: 0.85rem;
+      letter-spacing: 0.15rem;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .nav-links a {
+      padding: 0.35rem 0.7rem;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.82rem;
+      border-radius: 999px;
+      transition: 0.15s;
+    }
+    .nav-links a:hover {
+      background: var(--bg-alt);
+      color: #e0f2fe;
+    }
+    .nav-links a.active-nav {
+      background: var(--accent);
+      color: #0f172a !important;
+      font-weight: 600;
+    }
+    .theme-toggle {
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ============================
+       SECTIONS
+    ============================ */
+    .page-section {
+      max-width: 1000px;
+      margin: 1.6rem auto;
+      padding: 0 1rem;
+    }
+    .section-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.35rem 1.25rem;
+      margin-bottom: 1.1rem;
+    }
+    .section-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    /* ============================
+       PROFILE (TOP SECTION)
+    ============================ */
+    #profile-section {
+      max-width: 780px;
+      margin: 1.8rem auto 1.6rem;
+      padding: 0 1rem;
+    }
+    .profile-inner {
+      padding: 1.6rem 1.2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.23), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129,140,248,0.18), transparent 60%),
+        var(--bg-card);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    [data-theme="light"] .profile-inner {
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129,140,248,0.12), transparent 60%),
+        var(--bg-card);
+    }
+    .profile-photo {
+      width: 180px;
+      border-radius: 12px;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+      object-fit: cover;
+    }
+    .profile-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .profile-name {
+      font-size: 1.9rem;
+      margin-bottom: 0.2rem;
+    }
+    .profile-role {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+    .profile-summary {
+      font-size: 0.9rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .profile-actions {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #041014;
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      color: var(--text);
+      background: transparent;
+    }
+    .btn-ghost:hover {
+      background: rgba(15,23,42,0.9);
+    }
+    [data-theme="light"] .btn-ghost:hover {
+      background: rgba(226,232,240,0.9);
+    }
+    .profile-meta {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .profile-meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .profile-meta a:hover {
+      text-decoration: underline;
+    }
+
+    /* ============================
+       CARDS
+    ============================ */
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border-subtle);
+      padding: 0.75rem 0.85rem;
+      background: var(--bg-card);
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+      transform-style: preserve-3d;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(56,189,248,0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Linked vs nonlinked project cards */
+    .card.linked:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(56,189,248,0.55);
+      transform: translateY(-5px) rotateX(1.5deg) rotateY(-1.5deg);
+      cursor: pointer;
+    }
+    .card.nonlinked:hover {
+      border-color: var(--border-subtle);
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+    }
+    .card-title .link-icon {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.25rem;
+      align-items: baseline;
+    }
+    .card-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    .card-title a {
+      text-decoration: none;
+      color: var(--text);
+    }
+    .card-title a:hover {
+      color: var(--accent);
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+    .tag {
+      padding: 0.12rem 0.45rem;
+      font-size: 0.7rem;
+      background: rgba(56,189,248,0.08);
+      color: var(--accent);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .card-body {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .card-body ul {
+      margin-top: 0.25rem;
+      margin-left: 1rem;
+    }
+    .card-body li {
+      margin-bottom: 0.1rem;
+      list-style: disc;
+    }
+
+    /* ============================
+       GRIDS
+    ============================ */
+    .projects-grid {
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    @media (min-width: 1400px) {
+      .projects-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 1399px) and (min-width: 1100px) {
+      .projects-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 1099px) and (min-width: 900px) {
+      .projects-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 899px) and (min-width: 600px) {
+      .projects-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 599px) {
+      .projects-grid { grid-template-columns: repeat(1, 1fr); }
+    }
+
+    .cert-grid {
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    @media (min-width: 1400px) {
+      .cert-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 1399px) and (min-width: 1100px) {
+      .cert-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 1099px) and (min-width: 900px) {
+      .cert-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 899px) and (min-width: 600px) {
+      .cert-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 599px) {
+      .cert-grid { grid-template-columns: repeat(1, 1fr); }
+    }
+
+    /* ============================
+       CERTIFICATION CATEGORIES
+    ============================ */
+    .cert-category {
+      border-top: 1px solid rgba(148,163,184,0.25);
+      padding-top: 0.8rem;
+      margin-bottom: 1.2rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 0.8rem;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .cert-category.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .cert-category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 0.25rem 0;
+    }
+    .cert-category-header .chevron {
+      transition: transform 0.25s ease;
+      font-size: 1.1rem;
+    }
+    .cert-category[data-open="false"] .chevron {
+      transform: rotate(-90deg);
+    }
+
+    .cert-category-content {
+      overflow: hidden;
+      max-height: 2000px;
+      transition: max-height 0.35s ease;
+    }
+    .cert-category[data-open="false"] .cert-category-content {
+      max-height: 0;
+    }
+
+    /* ============================
+       FLOATING CV BUTTON
+    ============================ */
+    .floating-cv {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      background: #22c55e;
+      color: #06200c;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      z-index: 60;
+    }
+    .floating-cv:hover {
+      background: #4ade80;
+      transform: translateY(-2px);
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      max-width: 1000px;
+      margin: 1.4rem auto 1rem;
+      padding: 0 1rem;
+      font-size: 0.75rem;
+      text-align: center;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ============================
+       ANIMATIONS
+    ============================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeIn 0.7s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      #profile-section {
+        margin-top: 1.2rem;
+      }
+      .floating-cv {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-left">
+        Tahereh Fahi
+      </div>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🌙</span>
+        <span>Theme</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PROFILE -->
+  <section id="profile-section">
+    <a id="hero"></a>
+    <a id="profile"></a>
+    <div class="profile-inner fade-in">
+      <img src="tahereh.jpg" alt="Tahereh Fahi" class="profile-photo" />
+      <div class="profile-kicker">Data Science · Machine Learning · Optimization</div>
+      <h1 class="profile-name">Tahereh Fahi</h1>
+      <div class="profile-role">Data Scientist · ML Researcher</div>
+      <p class="profile-summary">
+        Data scientist with a MicroMaster in Statistics and Data Science (MIT) and top rankings in
+        B.Sc. and M.Sc. programs. Experienced in financial time series, environmental forecasting,
+        bioinformatics, and network science. Passionate about robust, data-driven decision-making and
+        human–AI collaboration.
+      </p>
+
+      <div class="profile-actions">
+        <a href="Tahereh-Fahi-CV.pdf" target="_blank" class="btn btn-primary">📄 View My CV</a>
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+      </div>
+
+      <div class="profile-meta">
+        Based in Toronto, Canada ·
+        <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <div class="section-subtitle">
+          Data scientist with a background in industrial engineering, IT systems, and statistical data science.
+        </div>
+      </div>
+      <p class="card-body">
+        I enjoy building machine learning solutions that connect rigorous models with real-world decisions.
+        My work spans financial markets, environmental systems, bioinformatics, and complex networks,
+        often integrating time series, optimization, and deep learning. I value clarity, reproducibility,
+        and practical impact in all stages of the ML lifecycle—from data collection and modeling to deployment.
+      </p>
+    </div>
+  </section>
+
+ <!-- PROJECTS (MERGED WITH TAG-STYLE KEYWORDS) -->
 <section id="projects" class="page-section">
   <div class="section-block fade-in">
     <div class="section-header">
@@ -227,3 +817,517 @@
     </div>
   </div>
 </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-subtitle">
+          Industry and research roles focused on data science, optimization, and time series modeling.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-title">Data Scientist — Roboself.ai</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – Present · Toronto</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Finance</span>
+          <span class="tag">Time Series</span>
+          <span class="tag">Optimization</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Developed algorithms to detect turning points in financial time series for early trend reversal detection.</li>
+            <li>Designed hybrid AI models combining Neural Networks, GA, PSO, and NSGA-II.</li>
+            <li>Applied signal processing for feature extraction, noise reduction, and model robustness.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-title">Graduate Research Assistant — Tarbiat Modares University</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2016 – 2017 · Tehran</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Research</span>
+          <span class="tag">Finance</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>
+              Led the project <strong>“Integrating a Local Feature Selection and a Modified PLR Method for Stock Trading Points Prediction”</strong>.
+            </li>
+            <li>Developed a hybrid PLR + local feature selection framework for noisy, non-stationary stock data.</li>
+            <li>Improved turning point detection and trading signal precision with lower computational cost.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <div class="section-subtitle">
+          Strong quantitative foundation in statistics, IT systems, and industrial engineering.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-title">MicroMaster in Statistics & Data Science — MITx / edX</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2022 – 2024</div>
+        </div>
+        <div class="card-body">
+          GPA 4.0/4.0 · Focus on probability, statistical inference, machine learning, and data analysis.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-title">M.Sc. in Information Technology Engineering (IT Systems) — Tarbiat Modares University</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">Aug 2015 – May 2017 · Tehran, Iran</div>
+        </div>
+        <div class="card-body">
+          Ranked 1st · Specialized in IT Systems and data-driven decision-making.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-title">B.Sc. in Industrial Engineering — K.N. Toosi University of Technology</div>
+          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2009 – 2013</div>
+        </div>
+        <div class="card-body">
+          Ranked 1st · Systems analysis and operations research foundation.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-title">Programming & Tools</div>
+        <div class="card-body">
+          Python, R, MATLAB, C++, C#, SQL, MQL · TensorFlow, PyTorch, Keras, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-title">Machine Learning & Statistics</div>
+        <div class="card-body">
+          Supervised & unsupervised learning, deep learning (CNNs, RNNs, LSTMs, transformers), time series (ARIMA/ARIMAX),
+          Gaussian Processes, optimization with evolutionary algorithms (GA, PSO, NSGA-II).
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-title">Systems & Platforms</div>
+        <div class="card-body">
+          SQL/NoSQL databases, Microsoft Azure, Google Cloud, data structures, algorithms, and object-oriented programming.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Certifications</h2>
+        <div class="section-subtitle">
+          Organized by category — Machine Learning, Statistics, Deep Learning, and Cloud Engineering.
+        </div>
+      </div>
+
+      <!-- MACHINE LEARNING -->
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Machine Learning</span>
+          <span class="chevron">▾</span>
+        </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/UMH9PCAA3XL9" target="_blank">
+                  Machine Learning — Stanford University
+                </a>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Stanford</span>
+              </div>
+              <div class="card-body">Issued May 2024 · ID: UMH9PCAA3XL9</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATISTICS & DATA SCIENCE (MITx) -->
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Statistics & Data Science (MITx)</span>
+          <span class="chevron">▾</span>
+        </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/335e339527c548e19a9be4c72da363fe" target="_blank">
+                  Capstone Exam in Statistics & Data Science — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags">
+                <span class="tag">MIT MicroMasters</span><span class="tag">Statistics</span>
+              </div>
+              <div class="card-body">Issued Apr 2024 · ID: 335e339527c548e19a9be4c72da363fe</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/933756f365d844b0ab78ae32f4a42fa0" target="_blank">
+                  Data Analysis: Statistical Modeling & Computation — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Statistics</span></div>
+              <div class="card-body">Issued May 2023 · ID: 933756f365d844b0ab78ae32f4a42fa0</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/8e60f55f56c04b8a833889d809d39e2a" target="_blank">
+                  Probability: The Science of Uncertainty — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Probability</span></div>
+              <div class="card-body">Issued Dec 2022 · ID: 8e60f55f56c04b8a833889d809d39e2a</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/b996da98b8c84c41b636604cc6c97132" target="_blank">
+                  Fundamentals of Statistics — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Statistics</span></div>
+              <div class="card-body">Issued Nov 2022 · ID: b996da98b8c84c41b636604cc6c97132</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://courses.edx.org/certificates/76c9f4f89a254d8d942bad3dcbb60f69" target="_blank">
+                  Machine Learning with Python — MITx / edX
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Machine Learning</span></div>
+              <div class="card-body">Issued Jul 2022 · ID: 76c9f4f89a254d8d942bad3dcbb60f69</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEEP LEARNING (DeepLearning.AI) -->
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Deep Learning (DeepLearning.AI)</span>
+          <span class="chevron">▾</span>
+        </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/JVUR8FAQCS4Q" target="_blank">
+                  Deep Learning Specialization — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Deep Learning</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: JVUR8FAQCS4Q</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/LY5KRK7DJS9N" target="_blank">
+                  Convolutional Neural Networks — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">CNN</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: LY5KRK7DJS9N</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/JJFB9MY69UQW" target="_blank">
+                  Improving Deep Neural Networks — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">DNN</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: JJFB9MY69UQW</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/5LT3DB4EXCEZ" target="_blank">
+                  Neural Networks and Deep Learning — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Neural Networks</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: 5LT3DB4EXCEZ</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/TN563B6KSELK" target="_blank">
+                  Sequence Models — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">RNN</span><span class="tag">LSTM</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: TN563B6KSELK</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/G3CT3MP7LCWY" target="_blank">
+                  Structuring Machine Learning Projects — DeepLearning.AI
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">ML Strategy</span></div>
+              <div class="card-body">Issued Apr 2020 · ID: G3CT3MP7LCWY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLOUD & ML ENGINEERING (Google Cloud) -->
+      <div class="cert-category" data-open="true">
+        <div class="cert-category-header">
+          <span>Cloud & ML Engineering (Google Cloud)</span>
+          <span class="chevron">▾</span>
+        </div>
+        <div class="cert-category-content">
+          <div class="cert-grid">
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/RXPGDJJASHPL" target="_blank">
+                  Machine Learning on Google Cloud Specialization
+                </a>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Google Cloud</span><span class="tag">ML Engineering</span>
+              </div>
+              <div class="card-body">Issued Mar 2020 · ID: RXPGDJJASHPL</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/MGYB473M4LY4" target="_blank">
+                  Build, Train & Deploy ML Models (Keras)
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Keras</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: MGYB473M4LY4</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/JKDY3LWHL992" target="_blank">
+                  Feature Engineering
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Feature Engineering</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: JKDY3LWHL992</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/ZPZZSN4QYS9M" target="_blank">
+                  How Google Does Machine Learning
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">Google ML</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: ZPZZSN4QYS9M</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/TAQND8KQYVZG" target="_blank">
+                  Launching into Machine Learning
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">ML</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: TAQND8KQYVZG</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                <a href="https://www.coursera.org/account/accomplishments/records/F7EK7YNJHW6U" target="_blank">
+                  Machine Learning in the Enterprise
+                </a>
+              </div>
+              <div class="card-tags"><span class="tag">ML Engineering</span></div>
+              <div class="card-body">Issued Mar 2020 · ID: F7EK7YNJHW6U</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <div class="section-subtitle">
+          Open to collaborations in ML research, time series, and applied AI.
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-body">
+          <p>Email: <a href="mailto:tahereh.fahi1@gmail.com" style="color:var(--accent); text-decoration:none;">tahereh.fahi1@gmail.com</a></p>
+          <p style="margin-top:0.3rem;">
+            GitHub: <a href="https://github.com/tahereh-fahi" target="_blank" style="color:var(--accent); text-decoration:none;">github.com/tahereh-fahi</a>
+          </p>
+          <p style="margin-top:0.3rem;">
+            LinkedIn: <a href="https://www.linkedin.com/in/tahereh-fahi" target="_blank" style="color:var(--accent); text-decoration:none;">linkedin.com/in/tahereh-fahi</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING CV BUTTON -->
+  <a href="Tahereh-Fahi-CV.pdf" target="_blank" class="floating-cv">
+    📄 CV
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Tahereh Fahi · Built with HTML, CSS, and a bit of JavaScript.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme Toggle
+    const htmlEl = document.documentElement;
+    const toggleBtn = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function setTheme(theme) {
+      htmlEl.setAttribute("data-theme", theme);
+      themeIcon.textContent = theme === "dark" ? "🌙" : "☀️";
+      try { localStorage.setItem("theme", theme); } catch (e) {}
+    }
+
+    (function () {
+      try {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light" || stored === "dark") {
+          setTheme(stored);
+        } else {
+          setTheme("dark");
+        }
+      } catch (e) {
+        setTheme("dark");
+      }
+    })();
+
+    toggleBtn.addEventListener("click", () => {
+      const current = htmlEl.getAttribute("data-theme") || "dark";
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+
+    // Scroll reveal for cards
+    const revealElements = document.querySelectorAll(".reveal");
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        if (position < windowHeight - 80) {
+          el.classList.add("revealed");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // Collapsible certification categories + fade-in
+    document.querySelectorAll(".cert-category-header").forEach(header => {
+      header.addEventListener("click", () => {
+        const parent = header.parentElement;
+        const isOpen = parent.getAttribute("data-open") === "true";
+        parent.setAttribute("data-open", isOpen ? "false" : "true");
+      });
+    });
+
+    const certCats = document.querySelectorAll(".cert-category");
+    const catObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.3 });
+    certCats.forEach(cat => catObserver.observe(cat));
+
+    // Active nav highlighting by section
+    const sections = [
+      { id: "profile-section", nav: "#profile" },
+      { id: "about", nav: "#about" },
+      { id: "projects", nav: "#projects" },
+      { id: "experience", nav: "#experience" },
+      { id: "education", nav: "#education" },
+      { id: "skills", nav: "#skills" },
+      { id: "certifications", nav: "#certifications" },
+      { id: "contact", nav: "#contact" }
+    ];
+
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sec = sections.find(s => s.id === entry.target.id);
+          if (!sec) return;
+          navLinks.forEach(link => {
+            link.classList.remove("active-nav");
+            if (link.getAttribute("href") === sec.nav) {
+              link.classList.add("active-nav");
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // Make linked project cards clickable
+    document.querySelectorAll(".card.linked").forEach(card => {
+      const url = card.getAttribute("data-link");
+      if (!url) return;
+      card.addEventListener("click", () => {
+        window.open(url, "_blank");
+      });
+    });
+  </script>
+</body>
+</html>
