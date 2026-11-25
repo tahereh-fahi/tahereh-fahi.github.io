@@ -11,9 +11,10 @@
   gtag('config', 'G-BR0CC88RVT');
 </script>
   <meta charset="UTF-8" />
-  <title>Tahereh Fahi | Co-Founder: AI Product Engineer</title>
+  <title>Tahereh Fahi | Data Scientist and Computational Media Researcher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Tahereh Fahi" />
+  <meta name="description" content="Tahereh Fahi is a data scientist and computational research collaborator at UCSB’s Media Neuroscience Lab, working on gameplay reward dynamics, computer vision, and temporal modeling." />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -168,6 +169,19 @@
       color: var(--text);
       margin-bottom: 0.3rem;
     }
+
+    .nav-inner { max-width:1300px; }
+    .nav-left { white-space:nowrap; }
+    .featured-project { margin-bottom:1rem; }
+    .experience-date { font-size:0.78rem; color:var(--muted); }
+    .research-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:0.4rem 2rem; padding-left:1.2rem; font-size:0.9rem; }
+    .citation { line-height:1.7; }
+    .citation em { font-style:italic; }
+    #research .section-title, #submissions .section-title { margin-bottom:0.9rem; }
+    #submissions .card + .card, #experience .card + .card, #education .card + .card, #skills .card + .card { margin-top:0.9rem; }
+    #projects .card-body { margin-top:0.6rem; }
+    .card-body ul { padding-left:1.1rem; }
+    @media(max-width:600px) { .card-header { flex-wrap:wrap; } }
 
     /* ============================
        PROFILE (TOP SECTION)
@@ -541,6 +555,8 @@
       <div class="nav-links">
         <a href="#profile">Profile</a>
         <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#submissions">Submissions</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
@@ -561,42 +577,48 @@
     <a id="profile"></a>
     <div class="profile-inner fade-in">
       <img src="tahereh.jpg" alt="Tahereh Fahi" class="profile-photo" />
-      <div class="profile-kicker">Generative AI · Computer Vision · Statistical Modeling</div>
+      <div class="profile-kicker">Computational Media Research · Computer Vision · Statistical Modeling</div>
       <h1 class="profile-name">Tahereh Fahi</h1>
-      <div class="profile-role">Co-Founder: AI Product Engineer</div>
+      <div class="profile-role">Data Scientist</div>
       <p class="profile-summary">
-        Co-Founder and AI Product Engineer delivering production GenAI, computer-vision, and statistical systems
-        across fintech and neuroscience. Hands-on with Python services, cloud
-        deployment, data infrastructure, and model validation.
+        I develop computational methods to study media and behavior. My work combines
+        computer vision, temporal modeling, and machine learning, with current research
+        at UCSB’s Media Neuroscience Lab on reward dynamics in gameplay.
       </p>
 
       <div class="profile-actions">
-        <a href="Tahereh-Fahi-CV.pdf" target="_blank" class="btn btn-primary">📄 View My CV</a>
+        <a href="Fahi-CV.docx" target="_blank" class="btn btn-primary">📄 Download CV (Word)</a>
         <a href="#projects" class="btn btn-ghost">View Projects</a>
       </div>
 
       <div class="profile-meta">
-        Toronto, Canada · Open to relocation to Tampa, FL ·
+        Toronto, Canada ·
         <a href="mailto:tahereh.fahi1@gmail.com">tahereh.fahi1@gmail.com</a>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="page-section">
+    <section id="about" class="page-section">
     <div class="section-block fade-in">
-      <div class="section-header">
-        <h2 class="section-title">About</h2>
-        <div class="section-subtitle">
-          Co-Founder and AI Product Engineer working across production generative AI, computer vision, statistical modeling, and cloud systems.
-        </div>
-      </div>
-      <p class="card-body">
-        I build reliable, explainable AI systems that turn complex analytical workflows into practical products
-        and decision tools. My work spans fintech and neuroscience research, combining LLM agents,
-        computer-vision pipelines, time-series and Hawkes-process modeling, Python services,
-        data infrastructure, cloud deployment, and rigorous model validation.
-      </p>
+      <div class="section-header"><h2 class="section-title">About</h2></div>
+      <p class="card-body">I am a data scientist with a background in industrial engineering and information technology engineering. My work at RoboSelf includes predictive modeling for non-stationary time series, LLM workflows, sentiment analysis, and strategy optimization.</p>
+      <p class="card-body" style="margin-top:0.8rem;">Since April 2026, I have collaborated with UCSB’s Media Neuroscience Lab. I develop methods to measure reward opportunities in gameplay and analyze their temporal patterns, supporting research into how media content relates to attention, motivation, and behavior. I am interested in bringing computational approaches to media psychology and communication neuroscience.</p>
+    </div>
+  </section>
+
+  <section id="research" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header"><h2 class="section-title">Research Interests</h2></div>
+      <ul class="research-list"><li>Media Psychology and Digital Entertainment</li><li>Reward Dynamics and Motivation in Video Games</li><li>Flow, Attention, and Cognitive Control</li><li>Compulsive Media Use and Self-Regulation</li><li>Communication Neuroscience and Individual Differences</li><li>Persuasion, Message Effects, and Decision-Making</li><li>Humor, Satire, and Political Communication</li><li>Morality, Moral Judgment, and Media Narratives</li><li>Computational Media Research and Behavioral Measurement</li><li>Health Communication and Behavior Change</li></ul>
+    </div>
+  </section>
+
+  <section id="submissions" class="page-section">
+    <div class="section-block fade-in">
+      <div class="section-header"><h2 class="section-title">Conference Submissions</h2></div>
+      <div class="card reveal"><div class="card-tags"><span class="tag">Submitted · ICA 2027</span><span class="tag">Computational Methods Division</span></div><p class="card-body citation"><strong>Fahi, T.</strong>, Malik, M., Ramanathan, A., Luna, J., Falcione, K., &amp; Weber, R. (2027). <em>From Gameplay Video to Reward Dynamics: A Computational Framework for Temporal Analysis in Vampire Survivors.</em> Paper submitted to the International Communication Association Annual Conference, Computational Methods Division, Glasgow, Scotland.</p></div>
+      <div class="card reveal"><div class="card-tags"><span class="tag">Submitted · ICA 2027</span><span class="tag">Political Communication Division</span></div><p class="card-body citation">Ramanathan, A., Malik, M., <strong>Fahi, T.</strong>, Oliver, A., &amp; Weber, R. (2027). <em>Measuring morality in text: A matched comparison of Moral Foundations Theory and Morality-as-Cooperation tools.</em> Paper submitted to the International Communication Association Annual Conference, Political Communication Division, Glasgow, Scotland.</p></div>
     </div>
   </section>
 
@@ -609,7 +631,14 @@
       </div>
     </div>
 
+      <div class="card reveal linked featured-project" data-link="https://github.com/tahereh-fahi/Aphasia">
+        <div class="card-header"><div class="card-title">Computational Modeling of Aphasia Recovery <span class="link-icon">↗</span></div></div>
+        <div class="card-tags"><span class="tag">Bayesian Knowledge Tracing</span><span class="tag">Response-Time Modeling</span><span class="tag">Exploratory Prediction</span></div>
+        <div class="card-body"><ul><li>Integrated naming accuracy, response times, semantic feature verification, and gamification data; built participant-level dashboards to track aphasia treatment progress.</li><li>Implemented Bayesian knowledge tracing and ex-Gaussian response-time modeling to compare estimated word mastery with retrieval-speed variability.</li><li>Developed exploratory Random Forest, neural-network, and gradient-boosting models for follow-up naming performance and practice dosage.</li></ul></div>
+      </div>
+
     <div class="projects-grid">
+
 
       <!-- ===========================
            LINKED PROJECTS (11)
@@ -641,7 +670,7 @@
           <span class="tag">Template Matching</span>
           <span class="tag">Random Forest</span>
           <span class="tag">Occlusion Handling</span>
-          <span class="tag">96.89% Accuracy</span>
+          <span class="tag">Human-Coding Comparison</span>
         </div>
       </div>
 
@@ -666,17 +695,17 @@
           <div class="card-title">Media Neuroscience Lab: Gameplay Reward Trajectory Modeling <span class="link-icon">↗</span></div>
         </div>
         <div class="card-tags">
-          <span class="tag">Hawkes Processes</span>
-          <span class="tag">Temporal Point Processes</span>
-          <span class="tag">Self-Excitation</span>
-          <span class="tag">Burstiness</span>
+          <span class="tag">Cross-Validated Models</span>
+          <span class="tag">Generalized Additive Models</span>
+          <span class="tag">Event Timelines</span>
+          <span class="tag">Temporal Patterns</span>
           <span class="tag">Inter-Event Analysis</span>
           <span class="tag">Research Modeling</span>
         </div>
       </div>
 
       <!-- Stock Trading -->
-      <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/Thesis-codes/blob/main/Thesis.ipynb">
+      <div class="card reveal linked" data-link="https://github.com/tahereh-fahi/Thesis/blob/main/Thesis.ipynb">
         <div class="card-header">
           <div class="card-title">Stock Trading Points Prediction <span class="link-icon">↗</span></div>
         </div>
@@ -890,147 +919,64 @@
 </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience" class="page-section">
+    <section id="experience" class="page-section">
     <div class="section-block fade-in">
-      <div class="section-header">
-        <h2 class="section-title">Experience</h2>
-        <div class="section-subtitle">
-        </div>
-      </div>
-
+      <div class="section-header"><h2 class="section-title">Experience</h2></div>
       <div class="card reveal">
-        <div class="card-header">
-          <div class="card-title">Computational Research Collaborator — Media Neuroscience Lab</div>
-          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2026 – Present · UC Santa Barbara</div>
-        </div>
-        <div class="card-tags">
-          <span class="tag">Computer Vision</span>
-          <span class="tag">OCR</span>
-          <span class="tag">Random Forest</span>
-          <span class="tag">Hawkes Processes</span>
-        </div>
-        <div class="card-body">
-          <ul>
-            <li>Developed and validated OCR pipelines for time-stamped kill-counter extraction from naturalistic gameplay video, achieving 89–92% agreement within five kills of human-coded observations.</li>
-            <li>Engineered a computer-vision pipeline combining XP-bar detection, template matching, multi-frame tracking, occlusion handling, and Random Forest classification; achieved 96.9% out-of-fold gem-color accuracy.</li>
-            <li>Modeled temporal reward dynamics with univariate and multivariate Hawkes processes, inter-event analysis, heat maps, and excitation matrices to inform neuroscience experiment design.</li>
-          </ul>
-        </div>
+        <div class="card-header"><div class="card-title">Computational Research Collaborator | Media Neuroscience Lab</div>
+          <div class="experience-date">Apr 2026 - Present · University of California, Santa Barbara</div></div>
+        <div class="card-tags"><span class="tag">Computer Vision</span><span class="tag">OCR</span><span class="tag">Temporal Modeling</span><span class="tag">Human-Coding Validation</span></div>
+        <div class="card-body"><ul><li>Developed a computer-vision pipeline combining OCR, template matching, multi-frame tracking, and game-specific rules to extract time-stamped gameplay events and quantities, showing high agreement with human coding for selected features with distinctive visual cues.</li><li>Analyzed reward dynamics using cross-validated constant, exponential, and generalized additive models, inter-event interval analysis, and synchronized event timelines; compared human-coded and automated temporal patterns.</li></ul></div>
       </div>
-
       <div class="card reveal">
-        <div class="card-header">
-          <div class="card-title">Co-Founder: AI Product Engineer — RoboSelf.ai</div>
-          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2018 – 2026 · Toronto</div>
-        </div>
-        <div class="card-tags">
-          <span class="tag">TypeScript</span>
-          <span class="tag">React / Next.js</span>
-          <span class="tag">Node.js / Python</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Cloud / Docker</span>
-        </div>
-        <div class="card-body">
-          <ul>
-            <li>Designed and delivered production-ready, end-to-end applications using TypeScript, React/Next.js, Node.js/Python, PostgreSQL, REST APIs, and cloud infrastructure.</li>
-            <li>Owned the complete software lifecycle, including system architecture, database design, API development, authentication, automated testing, CI/CD, Docker-based deployment, monitoring, and production support.</li>
-            <li>Reviewed and validated all AI-assisted code to ensure security, scalability, performance, maintainability, and compliance with engineering standards.</li>
-          </ul>
-        </div>
+        <div class="card-header"><div class="card-title">Data Scientist | RoboSelf</div>
+          <div class="experience-date">Nov 2018 - Present · Toronto, Canada</div></div>
+        <div class="card-tags"><span class="tag">Time-Series Prediction</span><span class="tag">LLM Workflows</span><span class="tag">Sentiment Analysis</span><span class="tag">Strategy Optimization</span></div>
+        <div class="card-body"><ul><li>Developed predictive modelling pipelines for non-stationary time series forecasting supporting strategy construction, backtesting, and forward evaluation environments</li><li>Built large language model workflows translating natural language inputs into executable strategy logic and automated feature engineering, preprocessing, visualization, and monitoring processes</li><li>Designed SQL driven data pipelines integrating market, news, and social streams and performed sentiment analysis to generate contextual indicators</li><li>Applied reinforcement learning, genetic algorithms, particle swarm optimization, and probabilistic modelling to optimize strategy parameterization, resulting in a 30% improvement in return objective performance</li></ul></div>
       </div>
-
       <div class="card reveal">
-        <div class="card-header">
-          <div class="card-title">Graduate Research Assistant — Tarbiat Modares University</div>
-          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2016 – 2017 · Tehran</div>
-        </div>
-        <div class="card-tags">
-          <span class="tag">Research</span>
-          <span class="tag">Finance</span>
-        </div>
-        <div class="card-body">
-          <ul>
-            <li>
-              Led the project <strong>“Integrating a Local Feature Selection and a Modified PLR Method for Stock Trading Points Prediction”</strong>.
-            </li>
-            <li>Developed a hybrid PLR + local feature selection framework for noisy, non-stationary stock data.</li>
-            <li>Improved turning point detection and trading signal precision with lower computational cost.</li>
-          </ul>
-        </div>
+        <div class="card-header"><div class="card-title">Graduate Research Assistant | Tarbiat Modares University</div>
+          <div class="experience-date">Aug 2016 - Aug 2017 · Tehran, Iran</div></div>
+        <div class="card-tags"><span class="tag">Time-Series Segmentation</span><span class="tag">Local Feature Selection</span></div>
+        <div class="card-body"><ul><li>Thesis: &quot;Integrating a Local Feature Selection and a Modified PLR Method for Stock Trading Points Prediction&quot;</li><li>Tackled non-stationary, noisy financial time series by focusing on localized market behavior.</li><li>Combined PLR-based time-series segmentation with Local Feature Selection to identify signals.</li></ul></div>
       </div>
     </div>
   </section>
 
   <!-- EDUCATION -->
-  <section id="education" class="page-section">
+    <section id="education" class="page-section">
     <div class="section-block fade-in">
-      <div class="section-header">
-        <h2 class="section-title">Education</h2>
-        <div class="section-subtitle">
-        </div>
-      </div>
-
+      <div class="section-header"><h2 class="section-title">Education</h2></div>
       <div class="card reveal">
-        <div class="card-header">
-          <div class="card-title">MicroMaster in Statistics & Data Science — MITx / edX</div>
-          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2022 – 2024</div>
-        </div>
-        <div class="card-body">
-          GPA 4.0/4.0 · Focus on probability, statistical inference, machine learning, and data analysis.
-        </div>
+        <div class="card-header"><div class="card-title">MITx MicroMasters Program in Statistics and Data Science</div>
+          <div class="experience-date">Sep 2022 - Apr 2024</div></div>
+        <div class="card-tags"><span class="tag">Massachusetts Institute of Technology (MIT)</span></div>
+        <div class="card-body"><ul><li>Probability, statistical inference, machine learning, and data analysis.</li></ul></div>
       </div>
-
       <div class="card reveal">
-        <div class="card-header">
-          <div class="card-title">M.Sc. in Information Technology Engineering (IT Systems) — Tarbiat Modares University</div>
-          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2015 – 2017</div>
-        </div>
-        <div class="card-body">
-          Ranked 1st · Specialized in IT Systems and data-driven decision-making.
-        </div>
+        <div class="card-header"><div class="card-title">MSc - Information Technology Engineering (IT Systems)</div>
+          <div class="experience-date">Aug 2015 - May 2017</div></div>
+        <div class="card-tags"><span class="tag">Tarbiat Modares University · Tehran, Iran</span></div>
+        <div class="card-body"><ul><li>Ranked 1st.</li></ul></div>
       </div>
-
       <div class="card reveal">
-        <div class="card-header">
-          <div class="card-title">B.Sc. in Industrial Engineering — K.N. Toosi University of Technology</div>
-          <div style="font-size:0.78rem; color:var(--muted); white-space:nowrap;">2009 – 2013</div>
-        </div>
-        <div class="card-body">
-          Ranked 1st · Systems analysis and operations research foundation.
-        </div>
+        <div class="card-header"><div class="card-title">BSc - Industrial Engineering (System Analysis)</div>
+          <div class="experience-date">Sep 2009 - Oct 2013</div></div>
+        <div class="card-tags"><span class="tag">K.N. Toosi University of Technology · Tehran, Iran</span></div>
+        <div class="card-body"><ul><li>Ranked 1st.</li></ul></div>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="page-section">
+    <section id="skills" class="page-section">
     <div class="section-block fade-in">
-      <div class="section-header">
-        <h2 class="section-title">Skills</h2>
-      </div>
-
-      <div class="card reveal">
-        <div class="card-title">Programming & Tools</div>
-        <div class="card-body">
-          Python, R, MATLAB, C++, C#, SQL, MQL · TensorFlow, PyTorch, Keras, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn.
-        </div>
-      </div>
-
-      <div class="card reveal">
-        <div class="card-title">Machine Learning & Statistics</div>
-        <div class="card-body">
-          Supervised & unsupervised learning, deep learning (CNNs, RNNs, LSTMs, transformers), time series (ARIMA/ARIMAX),
-          Gaussian Processes, optimization with evolutionary algorithms (GA, PSO, NSGA-II).
-        </div>
-      </div>
-
-      <div class="card reveal">
-        <div class="card-title">Systems & Platforms</div>
-        <div class="card-body">
-          SQL/NoSQL databases, Microsoft Azure, Google Cloud, data structures, algorithms, and object-oriented programming.
-        </div>
-      </div>
+      <div class="section-header"><h2 class="section-title">Skills</h2></div>
+      <div class="card reveal"><div class="card-title">Languages</div><div class="card-body">Python, R, MATLAB, MQL</div></div>
+      <div class="card reveal"><div class="card-title">Machine Learning Algorithms</div><div class="card-body">Decision Tree, SVM, Linear Regression, Linear Programming, Clustering, Bayesian methods, Deep Learning, Gaussian Process, CNN, Reinforcement Learning (Q-Learning)</div></div>
+      <div class="card reveal"><div class="card-title">ML Technologies</div><div class="card-body">TensorFlow, PyTorch, Keras, Pandas, scikit-learn, Matplotlib, Seaborn</div></div>
+      <div class="card reveal"><div class="card-title">Big Data and Cloud Technologies</div><div class="card-body">Microsoft Azure, Google Cloud</div></div>
+      <div class="card reveal"><div class="card-title">Computer Engineering</div><div class="card-body">Data Structures, Algorithms, Object-Oriented Programming</div></div>
     </div>
   </section>
 
@@ -1285,7 +1231,7 @@
       <div class="section-header">
         <h2 class="section-title">Contact</h2>
         <div class="section-subtitle">
-          Open to collaborations in ML research, time series, and applied AI.
+          Open to research collaborations in computational media, media psychology, machine learning, and temporal modeling.
         </div>
       </div>
       <div class="card reveal">
@@ -1303,8 +1249,8 @@
   </section>
 
   <!-- FLOATING CV BUTTON -->
-  <a href="Tahereh-Fahi-CV.pdf" target="_blank" class="floating-cv">
-    📄 CV
+  <a href="Fahi-CV.docx" target="_blank" class="floating-cv">
+    📄 CV (Word)
   </a>
 
   <!-- FOOTER -->
@@ -1383,6 +1329,8 @@
     const sections = [
       { id: "profile-section", nav: "#profile" },
       { id: "about", nav: "#about" },
+      { id: "research", nav: "#research" },
+      { id: "submissions", nav: "#submissions" },
       { id: "projects", nav: "#projects" },
       { id: "experience", nav: "#experience" },
       { id: "education", nav: "#education" },
